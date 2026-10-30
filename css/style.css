@@ -810,3 +810,38 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .zart__btn:hover { background: var(--paper-2); }
 .zart__btn:focus-visible { outline: 2px solid var(--dt); outline-offset: 2px; }
 .zart [hidden] { display: none !important; }
+/* v7q: no "Reading" label; Lazada outcome cards top-aligned, flat top rule */
+.bar__now-k { display: none; }
+.lz__out li { align-content: start; grid-template-rows: auto auto; border-radius: 2px 2px 10px 10px; gap: 8px; }
+.lz__out b { min-height: 2.6em; }
+/* v7s: regulation sequences + tiers; Singapore map */
+.rgrid--v { grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); }
+.rq { list-style: none; margin: var(--s-3) 0 0; padding: 0; counter-reset: rq; display: grid; gap: 10px; }
+.rq li { counter-increment: rq; display: grid; grid-template-columns: 26px minmax(0, 1fr); column-gap: 10px; align-items: start; }
+.rq li::before { content: counter(rq); grid-row: span 2; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font: 600 var(--text-xs)/1 var(--font-mono); background: var(--paper-2); color: var(--ink-2); border: 1px solid var(--rule); }
+.rq li.is-ok::before { background: var(--dt); color: var(--on-line); border-color: var(--dt); }
+.rq b { font-weight: 600; font-size: var(--text-sm); line-height: 1.45; color: var(--ink); padding-top: 3px; }
+.rq small { grid-column: 2; font-size: var(--text-xs); color: var(--ink-3); line-height: 1.4; }
+.tiers { list-style: none; margin: var(--s-3) 0 0; padding: 0; display: grid; gap: 8px; }
+.tiers li { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 12px; align-items: center; padding: 10px 12px; border-radius: 8px; background: var(--paper-2); border-left: 3px solid var(--dt); }
+.tiers li:nth-child(2) { border-left-width: 6px; }
+.tiers li.is-x { border-left: 3px dashed var(--ink-3); background: transparent; outline: 1px dashed var(--rule); outline-offset: -1px; }
+.tiers__amt { font: 600 var(--text-sm)/1.3 var(--font-mono); color: var(--ink); display: grid; gap: 2px; }
+.tiers__amt small { font: 400 var(--text-xs)/1.3 var(--font-body); color: var(--ink-3); }
+.tiers__how { font-size: var(--text-sm); color: var(--ink-2); line-height: 1.4; }
+.tiers li.is-x .tiers__how { font-weight: 600; color: var(--ink); }
+.next__row { display: grid; gap: var(--s-6); align-items: center; }
+@media (min-width: 900px) { .next__row { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); } }
+.sgm__fig { margin: 0; }
+.sgm { display: block; width: 100%; max-width: 460px; height: auto; margin-inline: auto; overflow: visible; }
+.sgm__lbl { font: 500 13px var(--font-mono); fill: var(--ink-3); letter-spacing: 0.04em; }
+.sgm__lbl--sg { fill: var(--ink); font-weight: 600; }
+.sgm__plane { opacity: 0; }
+.sgm__fig.is-flying .sgm__plane { opacity: 1; transition: opacity 200ms; }
+.sgm__fig.is-static .sgm__plane { display: none; }
+.sgm__arc { stroke-dashoffset: 0; }
+.sgm__fig.is-flying .sgm__flag { animation: sgwave 900ms 2.9s cubic-bezier(0.22, 1, 0.36, 1) both; transform-box: fill-box; transform-origin: left center; }
+@keyframes sgwave { from { transform: scaleX(0.2); opacity: 0; } to { transform: none; opacity: 1; } }
+.sgm__fig:not(.is-static):not(.is-flying) .sgm__flag { opacity: 0; }
+.rgrid .rq li, .rgrid .tiers li { min-height: 0; margin: 0; box-shadow: none; } .rgrid .rq li { border: 0; padding: 0; background: none; border-radius: 0; } .rgrid .rq { gap: 14px; margin-top: var(--s-4); } .rgrid .tiers li { border-top: 0; border-right: 0; border-bottom: 0; }
+.rgrid .tiers li:nth-child(2) { border-left-width: 3px; }
