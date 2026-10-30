@@ -1066,3 +1066,21 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .aw__t { min-height: 0; }
 #c50 { display: flex; flex-direction: column; }
 #c50 > .fd__fig { flex: 1; display: grid; align-content: center; }
+
+/* v9a: line-draw flow animation; icon steps on the Circular 40 card */
+.fd__dot { display: none; }
+.fd__run { fill: none; stroke: var(--dt); stroke-width: 2.6; stroke-linecap: round; }
+.fd__hit { fill: none; stroke: var(--dt); stroke-width: 2; }
+#ex-compliance .rq li { grid-template-columns: 34px minmax(0, 1fr); column-gap: 12px; }
+#ex-compliance .rq li::before { display: none; }
+#ex-compliance .rq b { grid-column: 2; }
+.rq__ic { grid-row: span 2; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--paper-2); color: var(--ink-2); border: 1px solid var(--rule); }
+.rq__ic svg { width: 20px; height: 20px; }
+#ex-compliance.is-live .rq li .rq__ic { animation: rqok 8s cubic-bezier(0.22, 1, 0.36, 1) infinite both; }
+#ex-compliance.is-live .rq li:nth-child(2) .rq__ic { animation-delay: 0.6s; }
+#ex-compliance.is-live .rq li:nth-child(3) .rq__ic { animation-delay: 1.2s; }
+#ex-compliance.is-live .rq li:nth-child(4) .rq__ic { animation: rqmiss 8s ease-in-out 1.8s infinite both; }
+#ex-compliance.is-live .rq li:nth-child(5) .rq__ic { animation: rqpause 8s ease-in-out 2.4s infinite both; }
+@media (prefers-reduced-motion: reduce) { #ex-compliance.is-live .rq li .rq__ic { animation: none !important; } }
+#ex-compliance .rq li { row-gap: 2px; align-content: start; }
+#ex-compliance .rq b { padding-top: 6px; }
