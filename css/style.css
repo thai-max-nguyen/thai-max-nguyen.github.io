@@ -1418,3 +1418,8 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
   94.55% { left: 25.00%; transform: scaleX(1); }
   100.00% { left: 25.00%; transform: scaleX(1); }
 }
+
+/* v9ag: Saigon outline */
+.hcm__l { fill: color-mix(in oklch, var(--ink) 10%, var(--paper)); stroke: var(--ink-2); stroke-width: 0.9; stroke-linejoin: round; }
+.hcm__r { fill: none; stroke: oklch(68% 0.11 230); stroke-width: 1; stroke-linecap: round; }
+.hcm__c { fill: var(--ink); }
