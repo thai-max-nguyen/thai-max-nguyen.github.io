@@ -845,3 +845,56 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .sgm__fig:not(.is-static):not(.is-flying) .sgm__flag { opacity: 0; }
 .rgrid .rq li, .rgrid .tiers li { min-height: 0; margin: 0; box-shadow: none; } .rgrid .rq li { border: 0; padding: 0; background: none; border-radius: 0; } .rgrid .rq { gap: 14px; margin-top: var(--s-4); } .rgrid .tiers li { border-top: 0; border-right: 0; border-bottom: 0; }
 .rgrid .tiers li:nth-child(2) { border-left-width: 3px; }
+/* v7t: decision flow */
+.fd__fig { margin: var(--s-4) 0 0; }
+.fd { display: block; width: 100%; height: auto; }
+.fd__b { fill: var(--paper-2); stroke: var(--rule); stroke-width: 1; }
+.fd__b.is-start { fill: var(--paper); stroke: var(--ink-3); }
+.fd__b.is-ok { fill: color-mix(in oklch, var(--dt) 16%, var(--paper)); stroke: var(--dt); }
+.fd__b.is-x { fill: none; stroke: var(--ink-3); stroke-dasharray: 4 4; }
+.fd__t { font: 600 13px var(--font-body); fill: var(--ink); }
+.fd__s { font: 400 11px var(--font-mono); fill: var(--ink-3); }
+.fd__l { fill: none; stroke: var(--ink-3); stroke-width: 1.3; }
+.fd__ah { fill: var(--ink-3); }
+.fd__m { fill: var(--dt); }
+.fd__mt { font: 700 11px var(--font-mono); fill: var(--on-line); }
+.fd__notes { list-style: none; margin: var(--s-4) 0 0; padding: 0; display: grid; gap: 8px; }
+.fd__notes li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 10px; align-items: start; font-size: var(--text-sm); line-height: 1.45; color: var(--ink-2); }
+.fd__notes b { width: 20px; height: 20px; border-radius: 50%; background: var(--dt); color: var(--on-line); display: grid; place-items: center; font: 700 11px/1 var(--font-mono); margin-top: 1px; }
+.rgrid .fd__notes li { border: 0; padding: 0; background: none; border-radius: 0; min-height: 0; box-shadow: none; }
+.rq__m { display: inline-grid; place-items: center; width: 18px; height: 18px; margin-left: 6px; border-radius: 50%; background: var(--dt); color: var(--on-line); font: 700 10px/1 var(--font-mono); font-style: normal; vertical-align: 1px; }
+.rq li.is-ok::before { background: var(--paper-2); color: var(--ink-2); border-color: var(--rule); }
+.aw__t, .tp__h, .lz__out b { text-wrap: balance; }
+/* v7v: audit layout fixes */
+.bnpl li { align-content: start; }
+.bnpl li > * { margin-top: 0; }
+.bnpl li b + span, .bnpl li b + p { margin-top: 4px; }
+@media (min-width: 900px) {
+  .tp__copy:has(.tp__aside) { display: grid; grid-template-columns: minmax(0, 1fr) 210px; column-gap: var(--s-6); align-items: start; }
+  .tp__copy:has(.tp__aside) > * { grid-column: 1 / -1; }
+  .tp__copy:has(.tp__aside) > p:not(.tp__k) { grid-column: 1; }
+  .tp__copy:has(.tp__aside) > .tp__aside { grid-column: 2; grid-row: 3 / span 3; margin: 0; max-width: none; }
+}
+/* v7w: journey map scrolls sideways on small screens instead of colliding */
+@media (max-width: 640px) {
+  .map .wrap { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; padding-bottom: var(--s-2); }
+  .map__lands, .map__line { min-width: 620px; }
+  .map__line span { display: block; }
+}
+/* v7x: BNPL journey funnel */
+.bj__fig { margin: var(--s-5) 0 0; overflow-x: auto; }
+.bj { display: block; width: 100%; min-width: 560px; height: auto; }
+.bj__c { fill: var(--paper-2); stroke: var(--rule); stroke-width: 1; }
+.bj__c.is-gap { fill: color-mix(in oklch, var(--cc) 22%, var(--paper)); stroke: var(--cc); stroke-width: 2; }
+.bj__t { font: 700 14px var(--font-display); fill: var(--ink); }
+.bj__n { font: 500 11px var(--font-mono); fill: var(--ink-3); letter-spacing: 0.08em; }
+.bj__s { font: 400 11.5px var(--font-body); fill: var(--ink-3); }
+.bj__s.is-gap { fill: var(--ink); font-weight: 600; }
+.bj__s.is-b { fill: var(--cc); font: 700 11px var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; }
+.bj__l { fill: none; stroke: var(--ink-3); stroke-width: 1.3; stroke-dasharray: 4 4; }
+.bj__ah { fill: var(--ink-3); }
+.bj__k { font: 600 11px var(--font-mono); fill: var(--ink-3); letter-spacing: 0.1em; }
+.bj__ln { font: 600 13px var(--font-body); fill: var(--ink); }
+.bj__d.is-live { fill: var(--ew); }
+.bj__d.is-pilot { fill: var(--cc); }
+.bj__d.is-next { fill: none; stroke: var(--ink-3); stroke-width: 1.5; }
