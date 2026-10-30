@@ -966,3 +966,6 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .flag figcaption { font: 500 var(--text-xs) var(--font-mono); color: var(--ink-3); letter-spacing: 0.04em; }
 .flags__link { flex: 0 1 140px; height: 0; border-top: 2px dashed var(--rule); margin-bottom: var(--s-6); }
 @media (max-width: 640px) { .flag svg { width: 78px; height: 52px; } .flags { margin-bottom: var(--s-5); } }
+
+/* v8j: tab copy starts on the same line as its image */
+@media (min-width: 900px) { .tp__copy { padding-top: 0; } }
