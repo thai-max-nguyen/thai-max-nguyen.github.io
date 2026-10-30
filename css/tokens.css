@@ -1,0 +1,118 @@
+/* Hallmark · tokens · theme: custom "Trust Line wayfinding"
+ * vibe: Singapore MRT signage, white platform, line-coloured codes, amber LED board
+ * axes: light / grotesk-sans (Archivo, upright) / multi-line chromatic (one line per section)
+ */
+:root {
+  /* paper + ink (platform white, navy-black ink) */
+  --paper:   oklch(98.6% 0.004 250);
+  --paper-2: oklch(96.4% 0.006 250);
+  --paper-3: oklch(92.8% 0.008 250);
+  --ink:     oklch(21% 0.028 262);
+  --ink-2:   oklch(37% 0.022 262);
+  --ink-3:   oklch(50% 0.016 262);
+  --rule:        oklch(89.5% 0.008 250);
+  --rule-strong: oklch(78% 0.012 250);
+  --on-line: oklch(99% 0 0);
+
+  /* departure board */
+  --board:     oklch(19% 0.018 262);
+  --board-2:   oklch(25% 0.02 262);
+  --board-rule: oklch(32% 0.02 262);
+  --led:       oklch(84% 0.15 78);
+  --led-dim:   oklch(62% 0.09 78);
+
+  /* lines (MRT-inspired) */
+  --ns: oklch(53% 0.2 33);    /* TL1 merchants, red */
+  --ew: oklch(55% 0.15 152);  /* TL2 / Lazada, green */
+  --dt: oklch(48% 0.17 258);  /* TL3 identity, blue */
+  --ne: oklch(45% 0.2 322);   /* TL4 user core, purple */
+  --cc: oklch(57% 0.14 62);   /* TL5 credit, amber */
+  --te: oklch(49% 0.09 52);   /* depot, brown */
+  --sg: oklch(64% 0.16 22);   /* next stop, coral */
+
+  --chart-context: oklch(76% 0.012 250);
+  --focus: oklch(55% 0.19 258);
+
+  /* type */
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --font-hand: var(--font-mono);
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.4rem, 1.1rem + 1vw, 1.75rem);
+  --text-2xl: clamp(1.7rem, 1.2rem + 1.8vw, 2.4rem);
+  --text-station: clamp(2.6rem, 1.4rem + 5vw, 5.6rem);
+  --text-display: clamp(2.3rem, 1.3rem + 3.6vw, 4.2rem);
+
+  /* 4pt spacing */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 128px;
+
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-pill: 999px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --t-fast: 160ms; --t-mid: 320ms; --t-slow: 900ms;
+
+  --wrap: 1180px;
+  --rail-w: 112px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:   oklch(17% 0.016 262);
+    --paper-2: oklch(21% 0.018 262);
+    --paper-3: oklch(26% 0.02 262);
+    --ink:     oklch(95% 0.006 250);
+    --ink-2:   oklch(82% 0.01 250);
+    --ink-3:   oklch(68% 0.012 250);
+    --rule:        oklch(29% 0.018 262);
+    --rule-strong: oklch(40% 0.02 262);
+    --board:     oklch(12% 0.012 262);
+    --board-2:   oklch(17% 0.014 262);
+    --board-rule: oklch(27% 0.018 262);
+    --ns: oklch(68% 0.18 33);
+    --ew: oklch(72% 0.15 152);
+    --dt: oklch(70% 0.14 258);
+    --ne: oklch(70% 0.16 322);
+    --cc: oklch(79% 0.14 72);
+    --te: oklch(72% 0.09 55);
+    --sg: oklch(74% 0.14 22);
+    --chart-context: oklch(46% 0.015 262);
+    --focus: oklch(72% 0.14 258);
+    --on-line: oklch(16% 0.02 262);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:   oklch(17% 0.016 262);
+  --paper-2: oklch(21% 0.018 262);
+  --paper-3: oklch(26% 0.02 262);
+  --ink:     oklch(95% 0.006 250);
+  --ink-2:   oklch(82% 0.01 250);
+  --ink-3:   oklch(68% 0.012 250);
+  --rule:        oklch(29% 0.018 262);
+  --rule-strong: oklch(40% 0.02 262);
+  --board:     oklch(12% 0.012 262);
+  --board-2:   oklch(17% 0.014 262);
+  --board-rule: oklch(27% 0.018 262);
+  --ns: oklch(68% 0.18 33);
+  --ew: oklch(72% 0.15 152);
+  --dt: oklch(70% 0.14 258);
+  --ne: oklch(70% 0.16 322);
+  --cc: oklch(79% 0.14 72);
+  --te: oklch(72% 0.09 55);
+  --sg: oklch(74% 0.14 22);
+  --chart-context: oklch(46% 0.015 262);
+  --focus: oklch(72% 0.14 258);
+  --on-line: oklch(16% 0.02 262);
+  color-scheme: dark;
+}
+:root { --mon: oklch(40% 0.09 262); }  /* Monash, navy */
+[data-theme="dark"] { --mon: oklch(68% 0.09 262); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --mon: oklch(68% 0.09 262); } }

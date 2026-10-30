@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Max Nguyen · Senior Product Owner, fintech</title>
+  <meta name="description" content="Senior Product Owner at Zalopay working on payments, digital identity and Buy Now Pay Later. Case studies with data, skills with proof. Open to product roles in Singapore." />
+  <meta name="theme-color" content="#f8f9fb" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thai-max-nguyen.github.io/" />
+  <meta property="og:title" content="Thai Max Nguyen · Senior Product Owner, fintech" />
+  <meta property="og:description" content="Payments, identity and credit products, with the numbers that settled each decision." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%2316192a'/%3E%3Ctext%20x='32'%20y='46'%20font-family='Arial,sans-serif'%20font-size='40'%20font-weight='800'%20text-anchor='middle'%20fill='%23f8f9fb'%3ET%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    (function () {
+      var h = document.documentElement;
+      try {
+        var t = localStorage.getItem("tn-theme");
+        var q = location.search.match(/theme=(light|dark)/);
+        if (q) t = q[1];
+        if (t === "light" || t === "dark") h.setAttribute("data-theme", t);
+      } catch (e) {}
+      try {
+        if (location.search.indexOf("shot") < 0 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          h.classList.add("motion");
+          setTimeout(function () { if (!window.__tnReady) h.classList.remove("motion"); }, 2500);
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="bar" id="nav">
+    <div class="bar__in">
+      <a class="bar__mark" href="#top">Thai Max Nguyen</a>
+      <p class="bar__now" aria-live="off"><span class="bar__now-k">Reading</span> <span id="now-code" class="code code--sm" style="--c:var(--ink)">TL</span> <span id="now-name">Trust Line</span></p>
+      <nav class="bar__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#launches">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="bar__end">
+        <a class="btn btn--ink btn--sm" href="mailto:thaiquang.nguyenle@gmail.com">Email me</a>
+        <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button class="bar__menu" id="menu-btn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button>
+      </div>
+    </div>
+    <div class="progress" aria-hidden="true"><span id="progress-fill"></span></div>
+    <div class="sheet" id="sheet" hidden>
+      <a href="#about">About</a>
+      <a href="#launches">Work</a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:thaiquang.nguyenle@gmail.com">Email me</a>
+    </div>
+  </header>
+
+  <!-- Side rail: the line you are riding. Desktop only. -->
+  <nav class="rail" id="rail" aria-label="Stations on this page">
+    <div class="rail__track" aria-hidden="true"><span class="rail__fill" id="rail-fill"></span></div>
+    <ol>
+      <li style="--c:var(--dt)"><a href="#launches"><i></i><b>Launches</b></a></li>
+      <li style="--c:var(--cc)"><a href="#data"><i></i><b>Regulation</b></a></li>
+      <li style="--c:var(--te)"><a href="#side"><i></i><b>Tools</b></a></li>
+      <li style="--c:var(--sg)" class="is-next"><a href="#next"><i></i><b>Singapore</b></a></li>
+    </ol>
+  </nav>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="hero__who">Senior Product Owner, Zalopay · <b>Open to product roles in Singapore</b></p>
+          <h1 class="hero__h1">I build the wallet inside <span class="hl">the chat app Vietnam lives on.</span></h1>
+          <p class="hero__sub">Zalopay is a leading Vietnamese e-wallet, built into the Zalo messaging app. I led a 12-person team on login, identity checks and account security, and now own Buy Now Pay Later. Before Zalopay, two years at Lazada on bank partnerships and cards.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--ink" href="mailto:thaiquang.nguyenle@gmail.com">Email me</a>
+            <a class="btn" href="#launches">See the work <span aria-hidden="true">↓</span></a>
+            <a class="btn btn--ghost" href="https://www.linkedin.com/in/thai-max-nguyen-6957b2213" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="btn btn--ghost" href="https://github.com/thai-max-nguyen" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <aside class="res" aria-label="Selected results">
+          <p class="res__k">Selected results</p>
+          <ol class="res__list">
+            <li><a href="#p-apple"><b>51%</b><span>of users who linked Zalopay in Apple services went on to pay, 3.4x the regional benchmark</span></a></li>
+            <li><a href="#p-vietqr"><b>VietQR</b><span>I took Vietnam’s national QR standard to online checkout (first on Lazada) and to cash on delivery. Sao Khuê Award 2025.</span></a></li>
+            <li><a href="#p-credit"><b>60%</b><span>of active credit accounts never used their limit, so I moved Buy Now Pay Later from acquisition to activation</span></a></li>
+            <li><a href="#p-vneid"><b>VNeID</b><span>I brought the national digital ID into Zalopay sign-up. End-to-end sign-up success quadrupled.</span></a></li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <!-- LINE MAP -->
+    
+
+    <!-- LZD -->
+    
+
+    <!-- TL1 -->
+    
+
+    <!-- TL2 · TL3 -->
+    
+
+    <!-- TL4 -->
+    
+
+    <!-- TL5 -->
+    
+
+    <!-- TE · DEPOT -->
+    
+
+    <!-- AWARDS -->
+    
+
+    <!-- SKILLS -->
+    <section class="about" id="about" aria-labelledby="about-h">
+      <div class="wrap about__grid">
+        <figure class="about__pic">
+          <img src="assets/img/portrait.webp" width="900" height="1201" alt="Thai Max Nguyen presenting the User Core 2026 plan at Zalopay annual planning" loading="lazy" />
+        </figure>
+        <div class="about__copy">
+          <h2 id="about-h">About</h2>
+          <p>I studied marketing at <b class="uni">Monash University</b> in Melbourne, then spent two years at Lazada building bank partnerships and card products, first on the partnership side and then as a product manager.</p>
+          <p>In 2023 I joined Zalopay and have since worked in three regulated areas: merchant payments, digital identity, and now consumer lending, where I own Buy Now Pay Later. I work between engineering, risk, legal, compliance and lending partners, and I coach a junior product owner.</p>
+          <p class="about__rating"><b>Top performance rating in every year of my career</b>: “A: Excellent” at VNG for 2024, 2025 and 2026, and the top rating at Lazada.</p>
+          <h3 class="small-h">How I work</h3>
+          <ol class="rules">
+            <li><span><b>Find the cause before choosing the fix.</b> Peers rated me 4.5 out of 5 on “digs to the root cause before proposing”.</span></li>
+            <li><span><b>Decide per segment.</b> An average can hide a yes and a no.</span></li>
+            <li><span><b>Plan the rollback before the rollout.</b></span></li>
+          </ol>
+          <p class="about__grow">What I’m working on: making big calls faster, and saying no earlier.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="aw" id="awards" aria-labelledby="aw-h">
+      <div class="wrap">
+        <h2 id="aw-h" class="small-h">Recognition</h2>
+        <p class="aw__line"><b>Top performance rating, every year</b><span class="aw__chips"><span>Lazada <em>Top</em></span><span>2024 <em>A</em></span><span>2025 <em>A</em></span><span>2026 <em>A</em></span></span><span class="aw__note">“A: Excellent” is VNG’s top tier.</span></p>
+        <ul class="aw__grid">
+          <li><img src="assets/img/aw-saokhue25.webp" alt="Sao Khuê Award, Fintech, 2025" loading="lazy" /><p class="aw__y">2025</p><p class="aw__t">Sao Khuê Award, Fintech</p><p class="aw__d">For pay on delivery. National IT award, VINASA.</p></li>
+          <li><img src="assets/img/aw-hack25.webp" alt="Zalopay Hackathon, Champion, 2025" loading="lazy" /><p class="aw__y">2025</p><p class="aw__t">Zalopay Hackathon, Champion</p><p class="aw__d">Second title in a row.</p></li>
+          <li><img src="assets/img/aw-hack24.webp" alt="Zalopay Hackathon, Champion, 2024" loading="lazy" /><p class="aw__y">2024</p><p class="aw__t">Zalopay Hackathon, Champion</p><p class="aw__d">Theme: ecosystem diversification.</p></li>
+          <li><img src="assets/img/aw-ai26.webp" alt="AI Exhibition, Top 5, 2026" loading="lazy" /><p class="aw__y">2026</p><p class="aw__t">AI Exhibition, Top 5</p><p class="aw__d">Edge-case detection. Team lead.</p></li>
+          <li><img src="assets/img/aw-ctf26.webp" alt="Security Contest, 3rd place, 2026" loading="lazy" /><p class="aw__y">2026</p><p class="aw__t">Security Contest, 3rd place</p><p class="aw__d">Team captain, team of two.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="map" id="line" aria-label="Route: Monash University in Australia, then Lazada and Zalopay in Vietnam, next stop Singapore">
+      <div class="wrap">
+        
+                <div class="map__lands" aria-hidden="true"><span class="ld--au">Australia</span><span class="ld--vn">Vietnam</span><span class="ld--sg">Singapore</span></div>
+        <ol class="map__line">
+          <li style="--c:var(--mon)" class="is-uni"><a href="#about"><b>Monash</b><span>Melbourne · 2018–21</span></a><i class="map__fly" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" fill="currentColor" transform="rotate(90 12 12)"/></svg></i></li>
+          <li style="--c:var(--ew)"><a href="#p-lazada"><b>Lazada</b><span>2021–22</span></a></li>
+          <li style="--c:var(--ns)"><a href="#p-vietqr"><b>Merchants</b><span>2023</span></a></li>
+          <li style="--c:var(--dt)"><a href="#p-vneid"><b>Identity</b><span>2025</span></a></li>
+          <li style="--c:var(--ne)"><a href="#data"><b>User Core</b><span>2025–26</span></a></li>
+          <li style="--c:var(--cc)" class="is-here"><a href="#p-credit"><b>Pay Later</b><span>Now</span></a><i class="map__fly map__fly--sg" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" fill="currentColor" transform="rotate(90 12 12)"/></svg></i></li>
+          <li style="--c:var(--sg)" class="is-next"><a href="#next"><b>Singapore</b><span>Next stop</span></a></li>
+        </ol>
+        <div class="map__foot">
+          <ul class="partners partners--grid" aria-label="Partners I integrated with"><li class="partners__k">Partners I integrated with</li><li><img src="assets/logos/apple.svg" alt="Apple" /></li><li><img src="assets/logos/googleplay.svg" alt="Google Play" /></li><li><img src="assets/logos/grab.svg" alt="Grab" /></li><li><img src="assets/logos/lazada.svg" alt="Lazada" /></li><li><img src="assets/logos/gojek.svg" alt="Gojek" /></li><li><img src="assets/logos/xanhsm.svg" alt="Xanh SM" /></li><li><img src="assets/logos/vneid-app.webp" alt="VNeID" /></li><li><img src="assets/logos/vpbank.svg" alt="VPBank" /></li><li><img src="assets/logos/cimb.svg" alt="CIMB" /></li><li><img src="assets/logos/vib.png" alt="VIB" /></li><li><img src="assets/logos/best-express.webp" alt="BEST Express" /></li><li><img src="assets/logos/ahamove.svg" alt="Ahamove" /></li><li><img src="assets/logos/vietcredit.png" alt="VietCredit" /></li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="blk" id="launches" data-stn style="--c:var(--dt)" data-code="" data-name="Launches">
+      <div class="wrap">
+        <header class="blk__h"><h2>Launches I led</h2><p>Five launches, newest first.</p></header>
+        <div class="tabs" role="tablist" aria-label="Launches">
+          <button class="tabs__b" role="tab" id="t-credit" aria-controls="p-credit" aria-selected="true"><b>Buy Now Pay Later</b><span>2026 · Lending</span></button>
+          <button class="tabs__b" role="tab" id="t-vneid" aria-controls="p-vneid" aria-selected="false"><b>VNeID sign-up</b><span>2025 · Identity</span></button>
+          <button class="tabs__b" role="tab" id="t-vietqr" aria-controls="p-vietqr" aria-selected="false"><b>Merchant payments</b><span>2023–24 · Merchants</span></button>
+          <button class="tabs__b" role="tab" id="t-apple" aria-controls="p-apple" aria-selected="false"><b>Apple services</b><span>2023 · Merchants</span></button>
+          <button class="tabs__b" role="tab" id="t-lazada" aria-controls="p-lazada" aria-selected="false"><b>Lazada × VIB card</b><span>2021–22 · Lazada</span></button>
+        </div>
+        <div class="tp" role="tabpanel" id="p-credit" aria-labelledby="t-credit">
+          <div class="tp__media"><figure class="ex__media"><div class="device"><img class="device__s" src="assets/img/vc-cashier.webp" alt="Zalopay checkout: paying with Pay Later and choosing one to twelve instalments" width="834" height="1962" loading="lazy" /></div><figcaption>Checkout with the new lender: pay later or split into 1 to 12 instalments. Final design.</figcaption></figure></div>
+          <div class="tp__copy"><p class="tp__k">Zalopay · Buy Now Pay Later · Product owner, leading a junior PO</p><h3 class="tp__h">Buy Now Pay Later, <span class="hl">end to end</span>, across lenders</h3><p>Pay Later is credit inside the wallet. A bank or finance company lends the money; Zalopay owns the whole user journey. I own that journey, with a junior product owner on my team, and every step is regulated, so each one runs with the lender, Risk, Legal and Compliance.</p><ul class="bnpl"><li><b>Sign-up</b><span>Identity check, the lender’s credit decision, e-contract signing.</span></li><li><b>Checkout</b><span>Pay later, or split into 1 to 12 instalments, with fees shown up front.</span></li><li><b>Statements and repayment</b><span>Monthly statement, auto-debit from the wallet, manual payment, refunds when an order is returned.</span></li><li><b>Collection</b><span>Reminders before and after the due date, in the app, by SMS and on Zalo.</span></li><li><b>Activation</b><span>60% of granted credit was never used, so the focus moved from sign-ups to first use.</span></li><li><b>Lenders</b><span>CIMB live. VietCredit as a second lender, pilot November 2026. VPBank next on the same setup.</span></li></ul></div>
+        </div>
+        <div class="tp" role="tabpanel" id="p-vneid" aria-labelledby="t-vneid">
+          <div class="tp__media"><figure class="ex__media">
+            <div class="device device--swap"><img class="device__s" src="assets/img/vneid-a.webp" alt="Zalopay screens for verifying an account through VNeID" width="375" height="812" loading="lazy" /><img class="device__s" src="assets/img/vneid-b.webp" alt="" width="375" height="812" loading="lazy" /></div>
+            <figcaption>Verify through VNeID, the national digital ID. Product design screens.</figcaption>
+          </figure></div>
+          <div class="tp__copy"><p class="tp__k">Zalopay · Identity · <a href="https://vnexpress.net/nguoi-dung-zalopay-co-the-xac-thuc-dien-tu-qua-vneid-4872599.html" target="_blank" rel="noopener">VnExpress on the VNeID launch ↗</a></p><h3 class="tp__h">Identity the government already trusts: end-to-end sign-up success <span class="hl">quadrupled</span></h3><p>I owned identity verification success, the gate in front of every revenue service. I set per-OS targets from the OS mix and drove NFC chip reading, the VNeID verification route, auto-reject rules, Smart Resume and AI auto-capture of the ID card. iOS met its target.</p><figure class="ex__media tp__m2 tp__aside"><div class="device"><video class="device__s device__v" src="assets/video/ekyc-auto-capture-id.mp4" poster="assets/video/ekyc-auto-capture-id-poster.jpg" muted loop playsinline preload="none" data-auto aria-label="Screen recording: the camera finds the ID card, checks it and takes the photo on its own"></video></div><figcaption>AI auto-capture: the camera checks the ID card and takes the photo itself. People got through the step 3x faster. Real recording, card blurred.</figcaption></figure></div>
+        </div>
+        <div class="tp" role="tabpanel" id="p-vietqr" aria-labelledby="t-vietqr">
+          <div class="tp__media"><figure class="ex__media">
+            <div class="device"><video class="device__s device__v" src="assets/video/lazada-vietqr.mp4" poster="assets/video/lazada-vietqr-poster.jpg" muted loop playsinline preload="none" data-auto aria-label="Screen recording: paying a Lazada order with VietQR from a bank app"></video></div>
+            <figcaption>Real recording: pick VietQR, scan in any bank app, details pre-filled. Personal data blurred.</figcaption>
+          </figure><figure class="ex__media tp__m2"><div class="device"><video class="device__s device__v" src="assets/video/ride-hailing.mp4" poster="assets/video/ride-hailing.jpg" muted loop playsinline preload="none" data-auto aria-label="Screen recording: finding VNPAY Taxi and Xanh SM inside Zalopay, linking the wallet with Face ID, then booking a Xanh SM ride paid by Zalopay"></video></div><figcaption>VNPAY Taxi and Xanh SM inside Zalopay. Real recording, personal details blurred.</figcaption></figure></div>
+          <div class="tp__copy"><p class="tp__k">Zalopay · Merchants · Sao Khuê Award 2025</p><h3 class="tp__h">The first e-commerce checkout in Vietnam on <span class="hl">VietQR</span>, the national QR standard</h3><p>I brought VietQR to Lazada checkout. Any banking app or e-wallet in the country can scan it, at a very low fee, and the amount, recipient and order reference arrive pre-filled, so the buyer only confirms.</p><h4 class="tp__sub">Then cash on delivery</h4><p>I was the product owner for Zalopay POD and led the Lazada Express and BEST Express integrations. Couriers collect cash-on-delivery orders with a Zalopay QR inside their own delivery app. Each order gets its own code for the exact amount, any bank or e-wallet app can scan it, and the money goes to the company, not the driver’s pocket. Partners include Ahamove, Lazada Express and BEST Express, which <a href="https://vietnamnet.vn/best-express-trien-khai-thanh-toan-qua-ma-qr-da-nang-zalopay-2326784.html" target="_blank" rel="noopener">rolled it out across its network in 63 provinces</a>.</p><h4 class="tp__sub">Ride-hailing: Xanh SM and VNPAY Taxi</h4><p>I was the product owner for both integrations. For Xanh SM, the electric taxi service, I connected Zalopay to the Xanh SM app and brought its mini app into Zalopay. Zalopay holds the estimated fare at booking and charges the final fare at drop-off (pre-authorisation). For VNPAY Taxi, I brought its mini app into Zalopay: people link their wallet once, confirm with Face ID, then book and pay without leaving Zalopay.</p><h4 class="tp__sub">Improving what was already live</h4><p>I owned the Zalopay payment integrations with Google Play, Grab and Gojek after launch, working on their core metrics: payment success rate and conversion at checkout.</p></div>
+        </div>
+        <div class="tp" role="tabpanel" id="p-apple" aria-labelledby="t-apple">
+          <div class="tp__media"><figure class="ex__media">
+            <div class="device"><video class="device__s device__v" src="assets/video/apple-binding.mp4" poster="assets/video/apple-binding-poster.jpg" muted loop playsinline preload="none" data-auto aria-label="Screen recording: adding Zalopay as a payment method in Apple services"></video></div>
+            <figcaption>Live in Apple services: add Zalopay, link, confirm with Face ID. Real recording, personal data blurred.</figcaption>
+          </figure></div>
+          <div class="tp__copy"><p class="tp__k">Zalopay · Apple payments · <a href="https://www.linkedin.com/posts/zalopay_zalopay-apple-appstore-activity-7285511140061720578-ayP3" target="_blank" rel="noopener">launch post ↗</a></p><h3 class="tp__h"><span class="hl">51%</span> of users who linked Zalopay went on to pay, 3.4x the regional benchmark</h3><p>Product lead for Zalopay as a tokenised payment method across the App Store, Apple Music and Apple TV. I worked through Apple’s payment standards with their team in Seoul.</p><h4 class="tp__sub">Then growth: a web flow and Apple Hub</h4><p>People without the Zalopay app link through a web flow I built. It brings in about 40% of new Apple payers. I also built Apple Hub, a mini app inside Zalopay that walks people through linking their Apple Account, choosing the funding source and managing the link, then sends them to the App Store to finish.</p><details class="more"><summary>Read the full case</summary><dl class="pwr">
+              <dt>Situation</dt><dd>Zalopay wanted to be a way to pay inside Apple’s services. That meant meeting Apple’s cross-border and tokenised payment standards, with Apple’s team in another country.</dd>
+              <dt>What I did</dt><dd>I was the product lead for the integration. I flew to Seoul to work through the payment standards with Apple’s team, then launched Zalopay as a tokenised payment method across the App Store, Apple Music and Apple TV.</dd>
+              <dt>Impact</dt><dd>51% of users who linked Zalopay made a payment, against a 15% regional benchmark. Off the back of it I moved into the identity team.</dd>
+            </dl>
+            <figure class="chart" data-chart>
+              <svg viewBox="0 0 560 210" role="img" aria-labelledby="v1t v1d">
+                <title id="v1t">Bind-to-pay rate</title>
+                <desc id="v1d">Regional benchmark 15 percent. Zalopay in Apple services 51 percent, 3.4 times higher.</desc>
+                <text class="c-unit" x="0" y="14">% of users who linked the method and then paid</text>
+                <text class="c-lab" x="0" y="52">Regional benchmark</text>
+                <rect class="c-track" x="0" y="62" width="440" height="30" rx="3"/>
+                <rect class="c-bar c-bar--ctx" x="0" y="62" width="66" height="30" rx="3"/>
+                <text class="c-val" x="76" y="83">15%</text>
+                <text class="c-lab c-lab--hero" x="0" y="130">Zalopay in Apple services</text>
+                <rect class="c-track" x="0" y="140" width="440" height="30" rx="3"/>
+                <rect class="c-bar c-bar--hero" x="0" y="140" width="224" height="30" rx="3" style="--d:120ms"/>
+                <text class="c-val c-val--hero" x="234" y="161"><tspan data-count="51">51</tspan>%</text>
+                <line class="c-axis" x1="440" y1="56" x2="440" y2="176"/>
+                <text class="c-tick" x="440" y="194" text-anchor="end">100%</text>
+                <text class="c-tick" x="0" y="194">0</text>
+                <g class="c-pill" transform="translate(330 98)"><rect x="0" y="0" width="64" height="26" rx="13"/><text x="32" y="18" text-anchor="middle">3.4x</text></g>
+              </svg>
+              <figcaption class="src">Source: Zalopay product data, launch period. Percentages only.</figcaption>
+            </figure></details></div>
+        </div>
+        <div class="tp tp--stat" role="tabpanel" id="p-lazada" aria-labelledby="t-lazada">
+          <div class="tp__media"><div class="tp__stat"><b>4% → 16%</b><span>non-cash-on-delivery payments in two years</span></div></div>
+          <div class="tp__copy"><p class="tp__k">Lazada · Bank partnerships · Best Employee Award 2023</p><h3 class="tp__h">The first co-branded card across all Lazada markets</h3><p>I led the Lazada × VIB co-branded card, the first across all Lazada markets, with sign-up and identity checks inside the app. I also brought VPBank on as a payments partner. Bank deals helped grow non-cash-on-delivery payments from 4% to 16% in two years.</p><p>Why it mattered: card orders are cancelled far less than cash on delivery and settle faster, and people who pay by card come back more often. Banks also fund promotions to win card usage, so leadership backed the push and Lazada could spend less of its own promotion budget.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blk blk--alt" id="data" data-stn style="--c:var(--cc)" data-code="" data-name="Regulation">
+      <div class="wrap">
+        <header class="blk__h"><h2>Regulation, shipped</h2><p>Rules from the State Bank of Vietnam, delivered on time and without a rebuild.</p></header>
+        <ul class="rgrid">
+          <li id="ex-compliance"><h4>Bank-linking rule (Circular 40)</h4><p>A State Bank of Vietnam rule required a linked bank account for every e-wallet user. I owned it across three payment flows and the risk plan, and rolled it out to all users on release day with a kill switch ready.</p></li>
+          <li id="c77"><h4>Circular 77 without a new build</h4><p>The lender’s first reading of Circular 77 meant building device-based FIDO authentication. I showed that our vendor’s liveness check is already certified to ISO 30107-3 (Level 2 by iBeta, Level 3 by BixeLab) and meets the rule. The build came off the roadmap. What remained was an audit log proving the certified path actually ran.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="blk" id="side" data-stn style="--c:var(--te)" data-code="" data-name="Tools">
+      <div class="wrap">
+        <header class="blk__h"><h2>Tools and standards I built</h2><p>Small systems that make the team’s work repeatable. They gather and draft; people make the calls.</p></header>
+        <ul class="tools tools--3">
+          <li id="cs"><h3>Customer-service ticket triage</h3><p>Each morning new Pay Later escalations are grouped into four case types, with only that customer’s account records pulled in and a first draft in our house format. I check the facts, decide the answer and reply.</p></li>
+          <li id="prd"><h3>PRD and Jira standards</h3><p>Templates and a review gate for specs and tickets: business rules kept apart from code detail, testable acceptance criteria, and a check before anything is published.</p></li>
+          <li id="analysis"><h3>Analysis checklist</h3><p>Runs before any data query: the question, the hypothesis, the right denominator and the method, then the SQL. Built after catching a figure 25x too high.</p></li>
+          <li id="codereader"><h3>Code Reader</h3><p>Nine single-purpose agents read the code behind a business rule and draft the ticket; only one can write to Jira, after a person approves. Built for Zalopay AI Week 2026, internal pilot.</p></li>
+          <li id="growth"><h3>Growth Assistant</h3><p>An AI analyst that reads four dashboards and drafts a daily decision and CRM campaigns for a person to approve. Claw-a-thon 2026, team of three.</p><a href="https://github.com/thai-max-nguyen/claw-a-thon-demo-agent-mvp" target="_blank" rel="noopener">Public repo ↗</a></li>
+          <li id="focuslog"><h3>FocusLog</h3><p>A local-first macOS time tracker with idle detection and no telemetry. About 110 tests, CI on every push.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+    <!-- ABOUT -->
+    
+
+    <!-- NEXT STOP -->
+    <section class="stn stn--next" id="next" data-stn style="--c:var(--sg)" data-code="SG" data-name="Singapore">
+      <div class="wrap">
+        <header class="sign">
+          
+          <h2 class="sign__name">Next stop: Singapore</h2>
+          <p class="sign__meta">Vietnamese fintech taught me to ship under regulation. Singapore is where that work goes regional.</p>
+        </header>
+        <div class="next__body">
+          <p class="next__main">I am looking for a product role in Singapore in fintech or tech, where I can own a funnel or a lending or payments product end to end. I bring regulated launches, partner work with banks and global platforms, and the habit of checking the data myself.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact" aria-labelledby="contact-h">
+      <div class="wrap">
+        <h2 id="contact-h">Let’s talk.</h2>
+        <p class="contact__sub">The fastest way to reach me is email. I reply within a day.</p>
+        <p class="contact__addr"><a href="mailto:thaiquang.nguyenle@gmail.com">thaiquang.nguyenle@gmail.com</a> <button class="btn btn--sm" id="copy-btn" type="button" data-copy="thaiquang.nguyenle@gmail.com">Copy email</button></p>
+        <div class="contact__ctas">
+          <a class="btn btn--ink" href="mailto:thaiquang.nguyenle@gmail.com">Email me</a>
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/thai-max-nguyen-6957b2213" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="btn btn--ghost" href="https://github.com/thai-max-nguyen" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <p>Ho Chi Minh City, Vietnam · GMT+7</p>
+      <p><a href="#top">Back to top ↑</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
