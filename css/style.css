@@ -756,3 +756,23 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 @media (prefers-reduced-motion: reduce) { .map__fly { animation: none !important; opacity: 1 !important; left: 100% !important; } }
 .tp__aside { max-width: 250px; margin: var(--s-5) 0 0; }
 .tp__aside figcaption { max-width: 250px; }
+
+/* v7j: regulation as visuals */
+.rgrid--v { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.rgrid--v li { border-left: 0; padding: var(--s-4); background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-md, 12px); display: flex; flex-direction: column; gap: var(--s-3); }
+.rg__k { margin: 0; font: 600 var(--text-xs)/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ne); }
+.rgrid--v h4 { margin: 0; font: 700 var(--text-lg)/1.2 var(--font-display); }
+.rg__n { margin: auto 0 0; font-size: var(--text-sm); color: var(--ink-3); }
+.rf { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+.rf__s { display: block; padding: 8px 12px; border: 1px solid var(--rule); border-radius: 8px; background: var(--paper-2); font: 600 var(--text-sm)/1.3 var(--font-body, inherit); color: var(--ink); }
+.rf__s small { display: block; font: 500 var(--text-xs)/1.4 var(--font-mono); color: var(--ink-3); margin-top: 2px; }
+.rf__s.is-ok { background: color-mix(in oklch, var(--dt) 14%, var(--paper)); border-color: color-mix(in oklch, var(--dt) 45%, transparent); }
+.rf__s.is-x { color: var(--ink-3); text-decoration: line-through; text-decoration-thickness: 2px; background: transparent; border-style: dashed; }
+.rf__a { align-self: center; width: 2px; height: 14px; background: var(--rule); position: relative; }
+.rf__a::after { content: ""; position: absolute; left: -4px; bottom: -2px; border: 5px solid transparent; border-top-color: var(--rule); border-bottom: 0; }
+.tier { display: grid; gap: 6px; }
+.tier__r { display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 8px 12px; border-radius: 8px; background: color-mix(in oklch, var(--dt) 8%, var(--paper-2)); font-size: var(--text-sm); }
+.tier__r:nth-child(2) { background: color-mix(in oklch, var(--dt) 16%, var(--paper-2)); margin-left: 10%; }
+.tier__r.is-top { background: color-mix(in oklch, var(--dt) 26%, var(--paper-2)); margin-left: 20%; }
+.tier__r b { font-weight: 600; color: var(--ink-2); }
+.tier__r i { font: 600 var(--text-xs) var(--font-mono); font-style: normal; color: var(--ink); }
