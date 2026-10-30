@@ -1222,3 +1222,5 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 @media (max-width: 420px) { .xchk { grid-template-columns: minmax(0, 1fr); } }
 .xchk li { gap: 1px; } .xchk b, .xchk span { margin: 0; padding: 0; display: block; }
 .xchk li { padding-top: 8px; padding-bottom: 9px; }
+/* v9r: room above the word so hills and sun show whole */
+.vnw__f { top: -0.32em; }
