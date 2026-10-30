@@ -956,3 +956,13 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .nw { white-space: nowrap; }
 #ex-compliance .rq { flex: 0 1 auto; row-gap: var(--s-6); align-content: start; }
 #ex-compliance > .fd__notes { margin-top: auto; }
+
+/* v8i: hero flags */
+.flags { display: flex; align-items: center; gap: var(--s-4); margin-bottom: var(--s-7); }
+.flag { margin: 0; display: grid; justify-items: center; gap: var(--s-2); }
+.flag svg { width: 132px; height: 88px; border-radius: 6px; box-shadow: 0 0 0 1px var(--rule), 0 10px 24px -14px color-mix(in oklch, var(--ink) 45%, transparent); }
+.flag--vn svg { transform: rotate(-4deg); }
+.flag--sg svg { transform: rotate(4deg); }
+.flag figcaption { font: 500 var(--text-xs) var(--font-mono); color: var(--ink-3); letter-spacing: 0.04em; }
+.flags__link { flex: 0 1 140px; height: 0; border-top: 2px dashed var(--rule); margin-bottom: var(--s-6); }
+@media (max-width: 640px) { .flag svg { width: 78px; height: 52px; } .flags { margin-bottom: var(--s-5); } }
