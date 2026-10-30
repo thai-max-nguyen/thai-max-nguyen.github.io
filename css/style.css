@@ -802,3 +802,6 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .res__grid b { font: 800 var(--text-xl)/1 var(--font-display); color: var(--ink); }
 .res__grid span { font-size: var(--text-xs); line-height: 1.4; color: var(--ink-3); }
 .hero__side .res { padding: var(--s-3); }
+.zart--img img { display: block; width: 100%; max-width: 420px; height: auto; margin: 0 auto; }
+.motion .zart--img img { opacity: 0; transform: translateY(16px); animation: zup 800ms var(--ease) 150ms forwards; }
+@keyframes zup { to { opacity: 1; transform: none; } }
