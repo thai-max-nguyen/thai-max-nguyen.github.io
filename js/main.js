@@ -273,15 +273,15 @@
   }
   w.addEventListener("click", toggle);
   w.addEventListener("mouseenter", toggle);
-  if ("IntersectionObserver" in window) {
-    var t, io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        clearTimeout(t);
-        if (e.isIntersecting) t = setTimeout(function () { toggle(); io.disconnect(); }, 1600);
-      });
-    }, { threshold: 1 });
-    io.observe(w);
-  } else { toggle(); }
+  /* v9aj: wait for the first scroll (headline read first), or 7s if the visitor never scrolls */
+  var idle = setTimeout(toggle, 7000);
+  function onScroll() {
+    if (window.scrollY < 60) return;
+    window.removeEventListener("scroll", onScroll);
+    clearTimeout(idle);
+    setTimeout(toggle, 350);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
   w.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
 })();
 

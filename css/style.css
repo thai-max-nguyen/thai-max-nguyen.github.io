@@ -1427,3 +1427,18 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 /* v9ai: BNPL journey walker */
 .bj__hl { fill: color-mix(in oklch, var(--cc) 16%, transparent); stroke: var(--cc); stroke-width: 2; pointer-events: none; }
 .bj__dot { fill: var(--cc); stroke: var(--paper); stroke-width: 2.5; }
+
+/* v9aj: keep the email on one line on phones */
+@media (max-width: 560px) { .contact__addr a { font-size: min(1em, 6.2vw); white-space: nowrap; overflow-wrap: normal; } }
+
+/* v9ak: rice in front of the word, growing in a staggered wave */
+.vnw__r { position: absolute; left: -0.05em; right: -0.05em; bottom: 0.02em; height: 0.72em; pointer-events: none; z-index: 1; }
+.vnw__r svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.vnw__r .rb { fill: none; stroke: oklch(60% 0.13 145); stroke-width: 1.8; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.vnw__r .rs { fill: none; stroke: oklch(64% 0.12 95); stroke-width: 1.5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.vnw__r .rg { fill: oklch(80% 0.14 88); }
+.vnw__r .rp { transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform 760ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--d) + 320ms); }
+.vnw:hover .vnw__r .rp, .vnw.is-on .vnw__r .rp { transform: none; }
+.vnw__r .rp__s { transform-box: fill-box; transform-origin: 50% 100%; }
+.motion .vnw.is-on .vnw__r .rp__s, .motion .vnw:hover .vnw__r .rp__s { animation: vsway var(--w) calc(var(--d) + 1100ms) ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce) { .vnw__r .rp { transition: none; } }
