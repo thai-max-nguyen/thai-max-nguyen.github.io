@@ -265,11 +265,23 @@
 (function () {
   var w = document.querySelector(".vnw");
   if (!w) return;
+  /* v9ac: grow once and hold: on hover, tap, or after it sits in view */
   function toggle() {
-    w.classList.toggle("is-on");
+    if (w.classList.contains("is-on")) return;
+    w.classList.add("is-on");
     if (navigator.vibrate) navigator.vibrate([18, 40, 18]);
   }
   w.addEventListener("click", toggle);
+  w.addEventListener("mouseenter", toggle);
+  if ("IntersectionObserver" in window) {
+    var t, io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        clearTimeout(t);
+        if (e.isIntersecting) t = setTimeout(function () { toggle(); io.disconnect(); }, 1600);
+      });
+    }, { threshold: 1 });
+    io.observe(w);
+  } else { toggle(); }
   w.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
 })();
 
