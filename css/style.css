@@ -1246,3 +1246,7 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 #ex-compliance { --rqg: calc(var(--s-6) + 18px); }
 #ex-compliance .rq { row-gap: var(--rqg); }
 #ex-compliance .rq li:not(:last-child)::after { height: calc(100% + var(--rqg) - 34px); }
+/* v9t: chips stretch so every row is full; last chip says there is more */
+.xmore .xchk li { flex: 1 1 auto; justify-content: center; }
+.xmore .xchk li.xchk__more { flex-grow: 3; border-style: dashed; background: none; color: var(--ink-3); }
+.xmore .xchk li.xchk__more::before { display: none; }
