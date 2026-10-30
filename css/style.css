@@ -1041,3 +1041,16 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .aw__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 560px) { .aw__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .tapbit { width: 9px; height: 9px; margin: -4.5px; }
+
+/* v8w: regulation cards come alive */
+.fd__dot { fill: var(--sg); stroke: var(--paper); stroke-width: 1.5; }
+.fd__glow { fill: color-mix(in oklch, var(--dt) 34%, transparent); stroke: var(--dt); stroke-width: 2; }
+#ex-compliance.is-live .rq li::before { animation: rqok 8s cubic-bezier(0.22, 1, 0.36, 1) infinite both; }
+#ex-compliance.is-live .rq li:nth-child(2)::before { animation-delay: 0.6s; }
+#ex-compliance.is-live .rq li:nth-child(3)::before { animation-delay: 1.2s; }
+#ex-compliance.is-live .rq li:nth-child(4)::before { animation: rqmiss 8s ease-in-out 1.8s infinite both; }
+#ex-compliance.is-live .rq li:nth-child(5)::before { animation: rqpause 8s ease-in-out 2.4s infinite both; }
+@keyframes rqok { 0%, 4% { background: var(--paper-2); color: var(--ink-2); border-color: var(--rule); transform: scale(1); } 8% { transform: scale(1.18); } 12%, 70% { background: var(--dt); color: var(--on-line); border-color: var(--dt); transform: scale(1); } 80%, 100% { background: var(--paper-2); color: var(--ink-2); border-color: var(--rule); } }
+@keyframes rqmiss { 0%, 4% { background: var(--paper-2); color: var(--ink-2); border-color: var(--rule); box-shadow: none; } 10%, 62% { background: var(--sg); color: var(--on-line); border-color: var(--sg); box-shadow: 0 0 0 0 color-mix(in oklch, var(--sg) 50%, transparent); } 30% { box-shadow: 0 0 0 8px transparent; } 72%, 100% { background: var(--paper-2); color: var(--ink-2); border-color: var(--rule); box-shadow: none; } }
+@keyframes rqpause { 0%, 4% { border-color: var(--rule); box-shadow: none; } 10%, 56% { border-color: var(--ink); box-shadow: 0 0 0 3px color-mix(in oklch, var(--sg) 30%, transparent); } 66%, 100% { border-color: var(--rule); box-shadow: none; } }
+@media (prefers-reduced-motion: reduce) { .fd__live { display: none; } #ex-compliance.is-live .rq li::before { animation: none !important; } }

@@ -253,3 +253,10 @@
   const ph = document.querySelector(".zart > img");
   if (ph) ph.addEventListener("click", () => { buzz([30, 50, 30, 50, 30]); replay(ph, "is-buzz"); });
 })();
+
+/* v8w: start the Circular 40 check run only while the card is on screen */
+(() => {
+  const c = document.getElementById("ex-compliance");
+  if (!c || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver((es) => es.forEach((e) => c.classList.toggle("is-live", e.isIntersecting)), { threshold: 0.35 }).observe(c);
+})();
