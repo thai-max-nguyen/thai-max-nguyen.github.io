@@ -930,3 +930,14 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .rgrid--v > li > .fd__notes { margin-top: auto; }
 /* v8b: a ruled list never lets text touch its rule: same inset above and below */
 .tools--3 li { padding: var(--s-4) 0; }
+
+/* v8d: review round 1 (layout floor) */
+.tp { grid-template-columns: minmax(0, 1fr); }
+.tp > * { min-width: 0; }
+.tp svg, .tp img, .tp video { max-width: 100%; height: auto; }
+@media (min-width: 900px) { .tp { grid-template-columns: 280px minmax(0, 1fr); } #p-vneid { grid-template-columns: 500px minmax(0, 1fr); } }
+.aw__t { min-height: 2.5em; }
+.partners__k { white-space: nowrap; }
+/* v8e: Circular 40 steps share the card height, no empty band above the notes */
+#ex-compliance .rq { flex: 1; align-content: space-between; }
+.bj__s { font-size: 12.5px; } .bj__n, .bj__k { font-size: 12px; }
