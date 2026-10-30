@@ -1262,3 +1262,18 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .motion #side.is-in .mf li { opacity: 1; transform: none; }
 .motion #side.is-in .mf li:nth-child(2) { transition-delay: 120ms; } .motion #side.is-in .mf li:nth-child(3) { transition-delay: 240ms; } .motion #side.is-in .mf li:nth-child(4) { transition-delay: 360ms; }
 @media (prefers-reduced-motion: reduce) { .motion #side .mf li { opacity: 1; transform: none; transition: none; } }
+
+/* v9v: Merlion */
+.sgm__mer .mer__k { fill: var(--paper); stroke: var(--ink-2); stroke-width: 1.6; stroke-linejoin: round; }
+.sgm__mer .mer__f { fill: var(--paper-2); stroke: var(--ink-2); stroke-width: 1.6; }
+.sgm__mer .mer__e { fill: var(--ink-2); }
+.sgm__mer .mer__l { fill: none; stroke: var(--ink-3); stroke-width: 1.3; stroke-linecap: round; }
+.sgm__mer .mer__wv { stroke: oklch(68% 0.11 230); }
+.sgm__mer .mer__w { fill: none; stroke: oklch(68% 0.11 230); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 6 5; }
+.sgm__mer .mer__d { fill: oklch(68% 0.11 230); }
+.motion .sgm__mer .mer__w { animation: merflow 0.9s linear infinite; }
+.motion .sgm__mer .mer__d { animation: merdrop 1.2s ease-in infinite; }
+.motion .sgm__mer .d2 { animation-delay: 0.4s; } .motion .sgm__mer .d3 { animation-delay: 0.8s; }
+@keyframes merflow { to { stroke-dashoffset: -22; } }
+@keyframes merdrop { from { transform: translateY(-4px); opacity: 1; } to { transform: translateY(10px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .motion .sgm__mer .mer__w, .motion .sgm__mer .mer__d { animation: none; } }
