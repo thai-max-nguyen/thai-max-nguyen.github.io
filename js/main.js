@@ -251,7 +251,7 @@
     f.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
   });
   const ph = document.querySelector(".zart > img");
-  if (ph) ph.addEventListener("click", () => { buzz([30, 50, 30, 50, 30]); replay(ph, "is-buzz"); });
+  if (ph) ph.addEventListener("click", () => { ph.classList.add("is-in"); buzz([30, 50, 30, 50, 30]); replay(ph, "is-buzz"); });
 })();
 
 /* v8w: start the Circular 40 check run only while the card is on screen */

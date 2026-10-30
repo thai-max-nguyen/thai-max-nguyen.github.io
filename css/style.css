@@ -1054,3 +1054,15 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 @keyframes rqmiss { 0%, 4% { background: var(--paper-2); color: var(--ink-2); border-color: var(--rule); box-shadow: none; } 10%, 62% { background: var(--sg); color: var(--on-line); border-color: var(--sg); box-shadow: 0 0 0 0 color-mix(in oklch, var(--sg) 50%, transparent); } 30% { box-shadow: 0 0 0 8px transparent; } 72%, 100% { background: var(--paper-2); color: var(--ink-2); border-color: var(--rule); box-shadow: none; } }
 @keyframes rqpause { 0%, 4% { border-color: var(--rule); box-shadow: none; } 10%, 56% { border-color: var(--ink); box-shadow: 0 0 0 3px color-mix(in oklch, var(--sg) 30%, transparent); } 66%, 100% { border-color: var(--rule); box-shadow: none; } }
 @media (prefers-reduced-motion: reduce) { .fd__live { display: none; } #ex-compliance.is-live .rq li::before { animation: none !important; } }
+
+/* v8x: one vertical rhythm, every content section 48px top and bottom */
+#next, #contact { padding-top: var(--s-7); padding-bottom: var(--s-7); }
+
+/* v8y: tapping the phone never hides it (entrance animation started from opacity 0) */
+.zart--img img.is-in, .motion .zart--img img.is-in { opacity: 1; transform: none; animation: none; }
+.zart--img img.is-in.is-buzz, .motion .zart--img img.is-in.is-buzz { animation: phonebuzz 520ms linear; }
+
+/* v8z: award titles hug their text; payment flow sits centred in its card */
+.aw__t { min-height: 0; }
+#c50 { display: flex; flex-direction: column; }
+#c50 > .fd__fig { flex: 1; display: grid; align-content: center; }
