@@ -969,3 +969,75 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 
 /* v8j: tab copy starts on the same line as its image */
 @media (min-width: 900px) { .tp__copy { padding-top: 0; } }
+
+/* v8l: flags react on hover: straighten, wave, link flows VN -> SG */
+.flag svg { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); transform-origin: left center; }
+.flags__link { position: relative; }
+.flags__link::after { content: ""; position: absolute; left: 0; top: -5px; width: 8px; height: 8px; border-radius: 50%; background: var(--sg); opacity: 0; }
+@media (hover: hover) and (pointer: fine) {
+  .flags:hover .flag svg { transform: rotate(0deg) translateY(-4px); box-shadow: 0 0 0 1px var(--rule), 0 18px 32px -16px color-mix(in oklch, var(--ink) 55%, transparent); }
+  .flag:hover svg { animation: flagwave 1.6s ease-in-out infinite; }
+  .flag:hover figcaption { color: var(--ink); }
+  .flags:hover .flags__link { border-top-color: var(--sg); }
+  .flags:hover .flags__link::after { animation: flaghop 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+}
+@keyframes flagwave {
+  0%, 100% { transform: translateY(-4px) skewY(0deg) scaleX(1); }
+  25% { transform: translateY(-4px) skewY(-3deg) scaleX(0.985); }
+  75% { transform: translateY(-4px) skewY(3deg) scaleX(0.985); }
+}
+@keyframes flaghop {
+  0% { left: 0; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { left: calc(100% - 8px); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flag svg { transition: none; }
+  .flag:hover svg, .flags:hover .flags__link::after { animation: none; }
+}
+
+/* v8n: route line as a rainbow, violet at Monash warming to coral at Singapore */
+:root {
+  --mon: oklch(50% 0.2 300);  /* violet */
+  --ew: oklch(52% 0.19 262);  /* blue */
+  --ns: oklch(60% 0.13 215);  /* cyan */
+  --dt: oklch(60% 0.17 150);  /* green */
+  --ne: oklch(76% 0.16 88);   /* yellow */
+  --cc: oklch(68% 0.17 55);   /* orange */
+}
+[data-theme="dark"] {
+  --mon: oklch(70% 0.17 300); --ew: oklch(70% 0.15 262); --ns: oklch(76% 0.12 215);
+  --dt: oklch(76% 0.16 150); --ne: oklch(85% 0.15 92); --cc: oklch(78% 0.15 60);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --mon: oklch(70% 0.17 300); --ew: oklch(70% 0.15 262); --ns: oklch(76% 0.12 215);
+  --dt: oklch(76% 0.16 150); --ne: oklch(85% 0.15 92); --cc: oklch(78% 0.15 60);
+} }
+
+/* v8o: firefighter nickname line */
+.about__ff { --ff: oklch(58% 0.2 28); --ffb: oklch(85% 0.14 90); display: flex; gap: 14px; align-items: center; margin-top: 4px; }
+.about__ff .ff { flex: 0 0 auto; width: 44px; height: 44px; color: var(--ink); }
+.about__ff .ff__flame { transform-origin: 16px 10px; }
+@media (hover: hover) and (pointer: fine) {
+  .about__ff:hover .ff__flame { animation: ffflick 0.9s ease-in-out infinite; }
+}
+@keyframes ffflick { 0%,100% { transform: scale(1) rotate(0deg); } 30% { transform: scale(1.12, 0.94) rotate(-4deg); } 65% { transform: scale(0.94, 1.1) rotate(4deg); } }
+@media (prefers-reduced-motion: reduce) { .about__ff:hover .ff__flame { animation: none; } }
+
+/* v8r: tap feedback on flags and the hero phone */
+.flag { position: relative; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.flag:focus-visible { outline: 2px solid var(--sg); outline-offset: 6px; border-radius: 6px; }
+.flag.is-tapped svg { animation: flagpop 620ms cubic-bezier(0.22, 1, 0.36, 1); }
+@keyframes flagpop { 0% { transform: scale(1); } 25% { transform: scale(0.9) rotate(-4deg); } 60% { transform: scale(1.1) rotate(3deg); } 100% { transform: scale(1) rotate(0deg); } }
+.tapbit { position: absolute; left: 50%; top: 40%; width: 7px; height: 7px; margin: -3.5px; border-radius: 2px; background: var(--k); box-shadow: 0 0 0 1px color-mix(in oklch, var(--ink) 12%, transparent); pointer-events: none; animation: tapbit 760ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+@keyframes tapbit { 0% { transform: translate(0, 0) scale(0.4); opacity: 1; } 100% { transform: translate(var(--x), var(--y)) rotate(200deg) scale(1); opacity: 0; } }
+.zart > img { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.zart > img.is-buzz { animation: phonebuzz 520ms linear; }
+@keyframes phonebuzz { 0%,100% { transform: translate(0,0) rotate(0); } 10%,50%,90% { transform: translate(-3px,0) rotate(-1.2deg); } 30%,70% { transform: translate(3px,0) rotate(1.2deg); } }
+@media (prefers-reduced-motion: reduce) { .flag.is-tapped svg, .zart > img.is-buzz { animation: none; } }
+
+/* v8s: recognition back to 3 x 2 now the rating card is first */
+.aw__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 560px) { .aw__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tapbit { width: 9px; height: 9px; margin: -4.5px; }

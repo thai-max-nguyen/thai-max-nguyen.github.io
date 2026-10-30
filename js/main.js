@@ -223,3 +223,33 @@
   });
   if (/^#p-/.test(location.hash)) show(location.hash.slice(1));
 })();
+
+/* v8r: tap feedback. Flags pop with a small burst, the phone buzzes. Vibration where the device supports it. */
+(() => {
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const buzz = (p) => { try { navigator.vibrate && navigator.vibrate(p); } catch (e) {} };
+  const replay = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove(cls), 700); };
+  const burst = (host, colors) => {
+    if (calm) return;
+    for (let i = 0; i < 14; i++) {
+      const s = document.createElement("i");
+      s.className = "tapbit";
+      const a = (Math.PI * 2 * i) / 14 + Math.random() * 0.4;
+      const d = 46 + Math.random() * 38;
+      s.style.setProperty("--x", Math.cos(a) * d + "px");
+      s.style.setProperty("--y", Math.sin(a) * d + "px");
+      s.style.setProperty("--k", colors[i % colors.length]);
+      host.appendChild(s);
+      setTimeout(() => s.remove(), 800);
+    }
+  };
+  document.querySelectorAll(".flag").forEach((f) => {
+    const vn = f.classList.contains("flag--vn");
+    f.setAttribute("tabindex", "0");
+    const go = () => { buzz([18, 40, 18]); replay(f, "is-tapped"); burst(f, vn ? ["#DA251D", "#FFCD00"] : ["#EF3340", "#FFFFFF", "#EF3340"]); };
+    f.addEventListener("click", go);
+    f.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+  });
+  const ph = document.querySelector(".zart > img");
+  if (ph) ph.addEventListener("click", () => { buzz([30, 50, 30, 50, 30]); replay(ph, "is-buzz"); });
+})();
