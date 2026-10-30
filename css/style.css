@@ -941,3 +941,14 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 /* v8e: Circular 40 steps share the card height, no empty band above the notes */
 #ex-compliance .rq { flex: 1; align-content: space-between; }
 .bj__s { font-size: 12.5px; } .bj__n, .bj__k { font-size: 12px; }
+
+/* v8f: review round 2 */
+.bar__now { display: none !important; }
+.hero__sub { text-wrap: pretty; }
+.rgrid--v .rq { margin-bottom: var(--s-5); }
+.rgrid--v > li > .fd__notes { padding-top: var(--s-4); border-top: 1px solid var(--rule); }
+@media (max-width: 640px) {
+  .fd__fig { overflow-x: auto; }
+  .fd__fig .fd { min-width: 520px; }
+  .bj__fig::after, .fd__fig::after { content: "Swipe sideways to see the whole flow →"; display: block; position: sticky; left: 0; margin-top: var(--s-2); font: 500 var(--text-xs) var(--font-mono); color: var(--ink-3); }
+}
