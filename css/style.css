@@ -1167,3 +1167,28 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .ffa__ray { fill: none; stroke: var(--ffx-line); stroke-width: 8; stroke-linecap: round; }
 .ffa__hose { fill: none; stroke: var(--ffx-ink); stroke-width: 34; stroke-linecap: round; stroke-linejoin: round; }
 .ffa__hosei { fill: none; stroke: var(--ffx-line); stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; }
+
+/* v9n: extra checks as pills; lifecycle line */
+.xchk { list-style: none; margin: var(--s-4) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.xchk li { display: flex; flex-direction: column; padding: 6px 12px 7px 26px; position: relative; border: 1px solid var(--rule); border-radius: 12px; background: var(--paper); }
+.xchk li::before { content: ""; position: absolute; left: 11px; top: 12px; width: 7px; height: 7px; border-radius: 50%; background: var(--dt); }
+.xchk b { font-size: var(--text-xs); font-weight: 600; color: var(--ink); line-height: 1.35; }
+.xchk span { font: 400 11px/1.35 var(--font-mono); color: var(--ink-3); }
+.motion #c50 .xchk li::before { animation: xpulse 5s ease-in-out infinite; }
+.motion #c50 .xchk li:nth-child(2)::before { animation-delay: 1s; }
+.motion #c50 .xchk li:nth-child(3)::before { animation-delay: 2s; }
+.motion #c50 .xchk li:nth-child(4)::before { animation-delay: 3s; }
+.motion #c50 .xchk li:nth-child(5)::before { animation-delay: 4s; }
+@keyframes xpulse { 0%, 30%, 100% { box-shadow: 0 0 0 0 transparent; } 10% { box-shadow: 0 0 0 5px color-mix(in oklch, var(--dt) 30%, transparent); } }
+@media (prefers-reduced-motion: reduce) { .motion #c50 .xchk li::before { animation: none; } }
+.life { margin-top: var(--s-5); max-width: 560px; font-size: var(--text-sm); color: var(--ink-2); }
+.life b { color: var(--ink); }
+
+/* v9p: helmet drops on when the head is revealed */
+.ffa__exm { fill: none; stroke: var(--ffx-ink); stroke-width: 8; stroke-linecap: round; }
+.ffa__hat { opacity: 0; transition: opacity 200ms ease; }
+.ffa__drop { transform: translateY(-120px); transition: transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+.ffx.has-hat .ffa__hat { opacity: 1; }
+.ffx.has-hat .ffa__drop { transform: none; }
+.ffx.has-hat .ffa__sp { transition-delay: 300ms; }
+@media (prefers-reduced-motion: reduce) { .ffa__drop { transition: none; transform: none; } }

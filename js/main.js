@@ -291,8 +291,6 @@
     if (t < 0 || t > 1) return;
     set(92 - Math.min(1, Math.max(0, (t - 0.15) / 0.55)) * 72);
   }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
 })();
 
 /* v9h: draw the 1x to 4x line and count up when it comes into view */
@@ -315,4 +313,14 @@
   new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting && e.boundingClientRect.width > 0) run(); });
   }, { threshold: 0.5 }).observe(c);
+})();
+
+/* v9p: start at 50%, no scroll sweep; the helmet appears once the head is on the firefighter side */
+(function () {
+  var f = document.querySelector(".ffx");
+  if (!f) return;
+  var r = f.querySelector(".ffx__r");
+  function hat() { f.classList.toggle("has-hat", +r.value < 36); }
+  r.addEventListener("input", hat);
+  window.addEventListener("load", function () { r.value = 50; f.style.setProperty("--x", "50%"); hat(); });
 })();
