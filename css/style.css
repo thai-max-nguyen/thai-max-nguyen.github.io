@@ -1442,3 +1442,8 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .vnw__r .rp__s { transform-box: fill-box; transform-origin: 50% 100%; }
 .motion .vnw.is-on .vnw__r .rp__s, .motion .vnw:hover .vnw__r .rp__s { animation: vsway var(--w) calc(var(--d) + 1100ms) ease-in-out infinite alternate; }
 @media (prefers-reduced-motion: reduce) { .vnw__r .rp { transition: none; } }
+
+/* v9ao: train stays white on the dark theme */
+[data-theme="dark"] .map__train .tr__b { fill: #f4f5f8; stroke: #f4f5f8; }
+[data-theme="dark"] .map__train .tr__w { fill: #1b2030; }
+[data-theme="dark"] .map__train { filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.5)); }
