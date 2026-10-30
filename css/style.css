@@ -898,3 +898,35 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .bj__d.is-live { fill: var(--ew); }
 .bj__d.is-pilot { fill: var(--cc); }
 .bj__d.is-next { fill: none; stroke: var(--ink-3); stroke-width: 1.5; }
+.bj__r { stroke: var(--cc); stroke-dasharray: none; } .bj .bj__s.is-gap + .bj__s.is-gap {}
+.bj__c.is-risk { fill: var(--paper); stroke: var(--cc); }
+.bj__t--sm { font-size: 13px; }
+.bj__p { fill: var(--paper-2); stroke: var(--rule); }
+.bj__p.is-next { fill: none; stroke-dasharray: 4 3; stroke: var(--ink-3); }
+.bj__p.is-qr { fill: color-mix(in oklch, var(--ew) 14%, var(--paper)); stroke: var(--ew); }
+.bj__m { fill: var(--cc); }
+.bj__mt { font: 700 11px var(--font-mono); fill: var(--on-line); }
+/* v7y: density pass. Less empty space everywhere */
+.hero { padding: var(--s-8) 0 var(--s-7); }
+.stn { padding: var(--s-7) 0 var(--s-6); }
+.stn + .stn { padding-top: var(--s-5); }
+.stn--next { padding-top: var(--s-7) !important; padding-bottom: var(--s-6) !important; }
+.sign { margin-bottom: var(--s-5); padding-bottom: var(--s-3); border-bottom-width: 6px; }
+.sign__name { font-size: clamp(2rem, 1.2rem + 3vw, 3.6rem); }
+.about { padding: var(--s-7) 0; }
+.blk { padding: var(--s-7) 0; }
+.map { padding: var(--s-6) 0; }
+.contact { padding: var(--s-8) 0 var(--s-7); }
+.next__row { gap: var(--s-5); }
+.sgm { max-width: 300px; }
+@media (min-width: 900px) { .next__row { grid-template-columns: minmax(0, 1fr) 300px; } }
+/* v7z: paired phones share one row; never let a device float beside text */
+.tp__media:has(.tp__pair) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); align-items: start; }
+.tp__media:has(.tp__pair) > figure { margin: 0; max-width: none; }
+.tp__media:has(.tp__pair) figcaption { min-height: 0; }
+@media (min-width: 900px) { #p-vneid { grid-template-columns: 500px minmax(0, 1fr); } }
+
+/* v8a: regulation cards: notes sit on the card floor, no dead band under them */
+.rgrid--v > li > .fd__notes { margin-top: auto; }
+/* v8b: a ruled list never lets text touch its rule: same inset above and below */
+.tools--3 li { padding: var(--s-4) 0; }
