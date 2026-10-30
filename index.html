@@ -91,7 +91,7 @@
           </div>
         </div>
 
-        <div class="hero__side"><figure class="zart zart--img"><img src="assets/img/zalopay-in-zalo.webp" width="715" height="900" alt="Illustration: a Zalo chat with Zalopay opened inside it as a wallet card" fetchpriority="high" /><figcaption>Zalopay lives inside Zalo, the chat app on most phones in Vietnam.</figcaption></figure>
+        <div class="hero__side"><figure class="zart zart--img"><img src="assets/img/zalopay-in-zalo.webp" width="715" height="900" alt="Illustration: a Zalo chat with Zalopay opened inside it as a wallet card" fetchpriority="high" /><div class="device zart__vid" hidden><video class="device__s device__v" src="assets/video/zalo-miniapp.mp4" poster="assets/video/zalo-miniapp.jpg" muted loop playsinline preload="none" aria-label="Screen recording: opening Zalopay from the Mini App list inside Zalo"></video></div><figcaption>Zalopay lives inside Zalo, the chat app on most phones in Vietnam. <button class="zart__btn" type="button" aria-pressed="false">▶ See the real app</button></figcaption></figure>
         <aside class="res" aria-label="Selected results">
           <p class="res__k">Selected results</p>
           <ol class="res__grid"><li><a href="#p-apple"><b>51%</b><span>of Apple-linked users went on to pay</span></a></li><li><a href="#p-vneid"><b>4x</b><span>sign-up success with VNeID</span></a></li><li><a href="#p-vietqr"><b>VietQR</b><span>first on Lazada checkout · Sao Khuê 2025</span></a></li><li><a href="#p-credit"><b>60%</b><span>of credit never used, so I moved to activation</span></a></li></ol>
@@ -319,5 +319,18 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+(function () {
+  var b = document.querySelector('.zart__btn'); if (!b) return;
+  var f = b.closest('.zart'), img = f.querySelector('img'), box = f.querySelector('.zart__vid'), v = box.querySelector('video');
+  b.addEventListener('click', function () {
+    var on = box.hidden;
+    box.hidden = !on; img.hidden = on;
+    b.setAttribute('aria-pressed', String(on));
+    b.textContent = on ? '✕ Back to the illustration' : '▶ See the real app';
+    if (on) { v.preload = 'auto'; v.play().catch(function () {}); } else v.pause();
+  });
+})();
+</script>
 </body>
 </html>
