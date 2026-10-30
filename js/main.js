@@ -272,3 +272,47 @@
   w.addEventListener("click", toggle);
   w.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
 })();
+
+/* v9g: firefighter reveal: scroll sweeps the divider until the visitor drags it */
+(function () {
+  var f = document.querySelector(".ffx");
+  if (!f) return;
+  var r = f.querySelector(".ffx__r"), used = false;
+  function set(v) { f.style.setProperty("--x", v + "%"); r.value = Math.round(v); }
+  r.addEventListener("input", function () {
+    if (!used) { used = true; f.classList.add("is-used"); }
+    set(+r.value);
+  });
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  function onScroll() {
+    if (used) return window.removeEventListener("scroll", onScroll);
+    var b = f.getBoundingClientRect(), vh = window.innerHeight;
+    var t = (vh - b.top) / (vh + b.height);
+    if (t < 0 || t > 1) return;
+    set(92 - Math.min(1, Math.max(0, (t - 0.15) / 0.55)) * 72);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+
+/* v9h: draw the 1x to 4x line and count up when it comes into view */
+(function () {
+  var c = document.querySelector(".x4");
+  if (!c) return;
+  var n = c.querySelector(".x4__n");
+  var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function run() {
+    if (still) { n.textContent = "4"; return; }
+    c.classList.remove("is-in"); void c.offsetWidth; c.classList.add("is-in");
+    var t0 = performance.now();
+    (function tick(t) {
+      var k = Math.min(1, (t - t0) / 1400);
+      n.textContent = String(Math.max(1, Math.round(1 + 3 * k * k * (3 - 2 * k))));
+      if (k < 1) requestAnimationFrame(tick);
+    })(t0);
+  }
+  if (!("IntersectionObserver" in window)) return run();
+  new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting && e.boundingClientRect.width > 0) run(); });
+  }, { threshold: 0.5 }).observe(c);
+})();

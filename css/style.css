@@ -1100,3 +1100,70 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 
 /* v9f: scroll progress = the rainbow route, not the per-section colour */
 .progress span { background: linear-gradient(90deg, var(--mon), var(--ew), var(--ns), var(--dt), var(--ne), var(--cc)) 0 0 / 100vw 100% no-repeat; }
+
+/* v9g: firefighter reveal on the About portrait */
+.ffx { --ffx-red: oklch(58% 0.2 28); --ffx-gold: oklch(85% 0.15 88); --ffx-ink: oklch(20% 0.02 260); --ffx-line: oklch(99% 0 0); position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4 / 5; touch-action: pan-y; }
+.ffx img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0; aspect-ratio: auto; }
+.ffx__a { filter: grayscale(1) contrast(1.05); }
+.ffx__b { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--x)); background: var(--ffx-red); }
+.ffx__b img { filter: grayscale(1) contrast(1.15); mix-blend-mode: multiply; }
+.ffx__art { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ffx__w { fill: none; stroke: var(--ffx-line); stroke-width: 6; stroke-linecap: round; stroke-dasharray: 2 18; }
+.ffx__fo { fill: var(--ffx-gold); stroke: var(--ffx-ink); stroke-width: 4; stroke-linejoin: round; }
+.ffx__fi { fill: var(--ffx-line); stroke: var(--ffx-ink); stroke-width: 3; }
+.ffx__tag { fill: var(--ffx-line); stroke: var(--ffx-ink); stroke-width: 4; }
+.ffx__tt { font: 700 30px var(--font-mono); fill: var(--ffx-ink); }
+.ffx__h { fill: var(--ffx-gold); stroke: var(--ffx-ink); stroke-width: 6; stroke-linejoin: round; }
+.ffx__hb { fill: var(--ffx-gold); stroke: var(--ffx-ink); stroke-width: 6; stroke-linejoin: round; }
+.ffx__hl { fill: none; stroke: var(--ffx-ink); stroke-width: 5; stroke-linecap: round; }
+.ffx__hs { fill: var(--ffx-line); stroke: var(--ffx-ink); stroke-width: 5; stroke-linejoin: round; }
+.ffx__hd { fill: var(--ffx-red); }
+.ffx__bar { position: absolute; top: 0; bottom: 0; left: var(--x); width: 4px; margin-left: -2px; background: var(--ffx-line); box-shadow: 0 0 0 1px color-mix(in oklch, var(--ffx-ink) 25%, transparent); pointer-events: none; }
+.ffx__k { position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; background: var(--ffx-ink); display: grid; place-items: center; box-shadow: 0 2px 8px color-mix(in oklch, var(--ffx-ink) 35%, transparent); }
+.ffx__k svg { width: 22px; height: 22px; fill: none; stroke: var(--ffx-line); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.ffx__r { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; -webkit-appearance: none; appearance: none; }
+.ffx__r:focus-visible ~ .ffx__bar .ffx__k, .ffx__r:focus-visible + .ffx__hint { outline: 3px solid var(--ffx-gold); outline-offset: 2px; }
+.ffx__hint { position: absolute; left: 12px; top: 12px; padding: 4px 10px; border-radius: 999px; background: var(--ffx-ink); color: var(--ffx-line); font: 600 var(--text-xs)/1.4 var(--font-mono); pointer-events: none; transition: opacity 300ms ease; }
+.ffx.is-used .ffx__hint { opacity: 0; }
+.ffx.is-used .ffx__k { transition: none; }
+@media (prefers-reduced-motion: reduce) { .ffx__hint { transition: none; } }
+
+/* v9h: 1x to 4x line */
+.x4 { margin: var(--s-6) 0 0; max-width: 520px; }
+.x4__s { width: 100%; height: auto; overflow: visible; }
+.x4__g { stroke: var(--rule); stroke-width: 1; }
+.x4__a { font: 500 11px var(--font-mono); fill: var(--ink-3); }
+.x4__l { fill: none; stroke: var(--dt); stroke-width: 3.5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.x4__f { fill: color-mix(in oklch, var(--dt) 14%, transparent); }
+.x4__d { fill: var(--paper); stroke: var(--dt); stroke-width: 3; }
+.x4__e { fill: var(--dt); }
+.x4__v { font: 700 26px var(--font-display); fill: var(--dt); }
+.x4 figcaption { margin-top: var(--s-2); font-size: var(--text-xs); color: var(--ink-3); }
+.motion .x4 .x4__l { stroke-dashoffset: 1; }
+.motion .x4 .x4__f, .motion .x4 .x4__e, .motion .x4 .x4__v { opacity: 0; }
+.motion .x4.is-in .x4__l { stroke-dashoffset: 0; transition: stroke-dashoffset 1400ms cubic-bezier(0.65, 0, 0.35, 1); }
+.motion .x4.is-in .x4__f { opacity: 1; transition: opacity 600ms ease 1100ms; }
+.motion .x4.is-in .x4__e, .motion .x4.is-in .x4__v { opacity: 1; transition: opacity 300ms ease 1250ms; }
+.motion .x4.is-in .x4__e { animation: x4pop 600ms cubic-bezier(0.34, 1.56, 0.64, 1) 1300ms both; transform-box: fill-box; transform-origin: center; }
+@keyframes x4pop { from { transform: scale(0.2); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .motion .x4 .x4__l { stroke-dashoffset: 0; } .motion .x4 .x4__f, .motion .x4 .x4__e, .motion .x4 .x4__v { opacity: 1; animation: none; } }
+
+/* v9j: today's-total gauge */
+.fd__z { stroke: none; }
+.fd__z.z1 { fill: color-mix(in oklch, var(--dt) 22%, var(--paper)); }
+.fd__z.z2 { fill: color-mix(in oklch, var(--dt) 52%, var(--paper)); }
+.fd__z.z3 { fill: var(--dt); }
+.fd__mk { fill: var(--paper); stroke: var(--ink); stroke-width: 3; }
+
+/* v9k: original colour photo on the left, art firefighter on the right */
+.ffx__a { filter: none; }
+.ffx__b { background: none; }
+.ffa__bg, .ffa__bgc { fill: var(--ffx-red); }
+.ffa__ln { fill: none; stroke: var(--ffx-line); stroke-width: 9; stroke-linecap: round; }
+.ffa__k { fill: var(--ffx-ink); stroke: var(--ffx-line); stroke-width: 8; stroke-linejoin: round; }
+.ffa__w { fill: var(--ffx-line); stroke: var(--ffx-ink); stroke-linejoin: round; }
+.ffa__w2 { fill: var(--ffx-line); stroke: var(--ffx-ink); stroke-width: 2.5; }
+.ffa__hl { fill: none; stroke: var(--ffx-line); stroke-width: 6; stroke-linecap: round; }
+.ffa__ray { fill: none; stroke: var(--ffx-line); stroke-width: 8; stroke-linecap: round; }
+.ffa__hose { fill: none; stroke: var(--ffx-ink); stroke-width: 34; stroke-linecap: round; stroke-linejoin: round; }
+.ffa__hosei { fill: none; stroke: var(--ffx-line); stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; }
