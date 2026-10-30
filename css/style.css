@@ -1084,3 +1084,19 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 @media (prefers-reduced-motion: reduce) { #ex-compliance.is-live .rq li .rq__ic { animation: none !important; } }
 #ex-compliance .rq li { row-gap: 2px; align-content: start; }
 #ex-compliance .rq b { padding-top: 6px; }
+.fd__ic { color: var(--ink-2); }
+
+/* v9e: Vietnam word becomes the flag */
+.vnw { --vn-red: #DA251D; --vn-gold: #FFCD00; position: relative; display: inline-block; cursor: pointer; outline: none; }
+.vnw__f { position: absolute; inset: 0.12em -0.04em 0.06em; border-radius: 0.12em; background: var(--vn-red); display: grid; place-items: center; opacity: 0; transform: scale(0.85) rotate(-3deg); transition: opacity 220ms cubic-bezier(0.22, 1, 0.36, 1), transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1); pointer-events: none; }
+.vnw__f svg { height: 78%; width: auto; fill: var(--vn-gold); }
+.vnw:hover .vnw__f, .vnw:focus-visible .vnw__f, .vnw.is-on .vnw__f { opacity: 1; transform: none; }
+.vnw:hover .vnw__f svg, .vnw.is-on .vnw__f svg { animation: vnstar 700ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+@keyframes vnstar { from { transform: rotate(-72deg) scale(0.4); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .vnw__f { transition: opacity 120ms linear; transform: none; } .vnw__f svg { animation: none !important; } }
+.vnw { transition: color 200ms linear; }
+.vnw:hover, .vnw:focus-visible, .vnw.is-on { color: transparent; }
+.vnw__f { inset: 0.1em 0 0.04em; }
+
+/* v9f: scroll progress = the rainbow route, not the per-section colour */
+.progress span { background: linear-gradient(90deg, var(--mon), var(--ew), var(--ns), var(--dt), var(--ne), var(--cc)) 0 0 / 100vw 100% no-repeat; }

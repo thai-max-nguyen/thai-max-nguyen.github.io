@@ -260,3 +260,15 @@
   if (!c || !("IntersectionObserver" in window)) return;
   new IntersectionObserver((es) => es.forEach((e) => c.classList.toggle("is-live", e.isIntersecting)), { threshold: 0.35 }).observe(c);
 })();
+
+/* v9e: tap "Vietnam" to show the flag (touch has no hover) */
+(function () {
+  var w = document.querySelector(".vnw");
+  if (!w) return;
+  function toggle() {
+    w.classList.toggle("is-on");
+    if (navigator.vibrate) navigator.vibrate([18, 40, 18]);
+  }
+  w.addEventListener("click", toggle);
+  w.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
+})();
