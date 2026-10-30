@@ -776,3 +776,10 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .tier__r.is-top { background: color-mix(in oklch, var(--dt) 26%, var(--paper-2)); margin-left: 20%; }
 .tier__r b { font-weight: 600; color: var(--ink-2); }
 .tier__r i { font: 600 var(--text-xs) var(--font-mono); font-style: normal; color: var(--ink); }
+
+/* v7k: Lazada outcomes */
+.lz__fig img { width: 100%; height: auto; border-radius: var(--r-md, 12px); display: block; }
+.lz__out { list-style: none; margin: var(--s-4) 0 0; padding: 0; display: grid; gap: var(--s-3); grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); }
+.lz__out li { padding: var(--s-3); border-radius: 10px; background: var(--paper-2); border-top: 3px solid var(--ew); display: grid; gap: 4px; }
+.lz__out b { font: 700 var(--text-sm)/1.3 var(--font-display); color: var(--ink); }
+.lz__out span { font-size: var(--text-xs); line-height: 1.45; color: var(--ink-3); }
