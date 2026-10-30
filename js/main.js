@@ -324,3 +324,12 @@
   r.addEventListener("input", hat);
   window.addEventListener("load", function () { r.value = 50; f.style.setProperty("--x", "50%"); hat(); });
 })();
+
+/* v9u: tools flows step in when the section is seen */
+(function () {
+  var s = document.getElementById("side");
+  if (!s) return;
+  if (!("IntersectionObserver" in window)) { s.classList.add("is-in"); return; }
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { s.classList.add("is-in"); io.disconnect(); } }); }, { threshold: 0.15 });
+  io.observe(s);
+})();
