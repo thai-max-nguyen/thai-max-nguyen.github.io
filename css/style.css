@@ -1192,3 +1192,33 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 .ffx.has-hat .ffa__drop { transform: none; }
 .ffx.has-hat .ffa__sp { transition-delay: 300ms; }
 @media (prefers-reduced-motion: reduce) { .ffa__drop { transition: none; transform: none; } }
+
+/* v9q: Vietnam grows a landscape behind the word; word stays readable */
+.vnw { isolation: isolate; }
+.vnw:hover, .vnw:focus-visible, .vnw.is-on { color: inherit; }
+.vnw__f { inset: 0.08em -0.06em 0.02em; z-index: -1; background: none; overflow: hidden; border-radius: 0.14em; transform: none; opacity: 0; transition: opacity 240ms cubic-bezier(0.22, 1, 0.36, 1); }
+.vnw__f svg { width: 100%; height: 100%; fill: none; animation: none !important; display: block; }
+.vs__sun { fill: var(--vn-red); opacity: 0.85; }
+.vs__m2 { fill: oklch(78% 0.08 165); }
+.vs__m1 { fill: oklch(70% 0.11 155); }
+.vs__f { fill: oklch(84% 0.13 95); }
+.vs__tr { fill: none; stroke: oklch(70% 0.12 85); stroke-width: 1.4; }
+.vs__st path { fill: none; stroke: oklch(62% 0.12 80); stroke-width: 2.4; stroke-linecap: round; }
+.vs__st ellipse { fill: oklch(76% 0.14 85); }
+.vnw__f svg > * { transform-box: fill-box; transform-origin: 50% 100%; transform: translateY(110%); transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1); }
+.vnw__f .vs__m1 { transition-delay: 60ms; } .vnw__f .vs__f, .vnw__f .vs__tr { transition-delay: 120ms; }
+.vnw__f .vs__sun { transition-delay: 200ms; } .vnw__f .vs__st { transform: scaleY(0); transition-delay: 260ms; }
+.vnw:hover .vnw__f, .vnw:focus-visible .vnw__f, .vnw.is-on .vnw__f { opacity: 1; }
+.vnw:hover .vnw__f svg > *, .vnw:focus-visible .vnw__f svg > *, .vnw.is-on .vnw__f svg > * { transform: none; }
+.motion .vnw:hover .vs__st, .motion .vnw.is-on .vs__st { animation: vsway 2.6s 900ms ease-in-out infinite alternate; }
+@keyframes vsway { to { transform: rotate(3deg); } }
+@media (prefers-reduced-motion: reduce) { .vnw__f svg > * { transition: none; } }
+/* v9q: awards photos keep 16:9 even with width/height attributes */
+.aw__grid img { height: auto; }
+/* v9q: extra checks as an even 2-column grid */
+.xchk { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.xchk li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.xchk span { font: 400 var(--text-xs)/1.35 var(--font-body); letter-spacing: 0; }
+@media (max-width: 420px) { .xchk { grid-template-columns: minmax(0, 1fr); } }
+.xchk li { gap: 1px; } .xchk b, .xchk span { margin: 0; padding: 0; display: block; }
+.xchk li { padding-top: 8px; padding-bottom: 9px; }
