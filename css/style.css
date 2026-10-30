@@ -1392,3 +1392,29 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
   96.81% { left: 21.43%; transform: scaleX(1); }
   100.00% { left: 21.43%; transform: scaleX(1); }
 }
+
+/* v9ae: six stations after merging Onboarding and Login & ID into User Platform */
+.map__line, .map__lands { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.map__lands .ld--vn { grid-column: 2 / 6; }
+.map__lands .ld--sg { grid-column: 6; }
+.motion .map.is-in .map__train { animation: mrt3 29s cubic-bezier(0.45, 0, 0.25, 1) 2.4s infinite both; }
+@keyframes mrt3 {
+  0.00% { left: 25.00%; transform: scaleX(1); }
+  4.14% { left: 25.00%; transform: scaleX(1); }
+  14.48% { left: 41.67%; transform: scaleX(1); }
+  18.62% { left: 41.67%; transform: scaleX(1); }
+  28.97% { left: 58.33%; transform: scaleX(1); }
+  33.10% { left: 58.33%; transform: scaleX(1); }
+  43.45% { left: 75.00%; transform: scaleX(1); }
+  47.59% { left: 75.00%; transform: scaleX(1); }
+  47.62% { left: 75.00%; transform: scaleX(-1); }
+  51.07% { left: 75.00%; transform: scaleX(-1); }
+  61.41% { left: 58.33%; transform: scaleX(-1); }
+  65.55% { left: 58.33%; transform: scaleX(-1); }
+  75.90% { left: 41.67%; transform: scaleX(-1); }
+  80.03% { left: 41.67%; transform: scaleX(-1); }
+  90.38% { left: 25.00%; transform: scaleX(-1); }
+  94.52% { left: 25.00%; transform: scaleX(-1); }
+  94.55% { left: 25.00%; transform: scaleX(1); }
+  100.00% { left: 25.00%; transform: scaleX(1); }
+}
