@@ -1321,3 +1321,38 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
   .bt--w p { grid-column: 1; grid-row: 2; align-self: start; }
   .bt--w .bt__art .bt__q { stroke-width: 0.8; }
 }
+
+/* v9y: MRT train on the Vietnam stretch */
+.map__line { position: relative; }
+.map__train { position: absolute; top: 6px; left: 21.43%; margin-left: -32px; z-index: 3; line-height: 0; pointer-events: none; opacity: 0; filter: drop-shadow(0 2px 3px color-mix(in oklch, var(--ink) 25%, transparent)); }
+.map__train .tr__b { fill: var(--paper); stroke: var(--ink-2); stroke-width: 1.4; }
+.map__train .tr__s { stroke: var(--sg); stroke-width: 3; }
+.map__train .tr__w { fill: color-mix(in oklch, var(--ink) 75%, var(--paper)); }
+.map__train .tr__l { fill: var(--flag-gold, #ffcd00); }
+.motion .map.is-in .map__train { animation: mrt 20s cubic-bezier(0.45, 0, 0.25, 1) 2.4s infinite; }
+@keyframes mrt {
+  0.0% { left: 21.43%; opacity: 0; }
+  6.0% { left: 21.43%; opacity: 1; }
+  21.0% { left: 35.71%; opacity: 1; }
+  27.0% { left: 35.71%; opacity: 1; }
+  42.0% { left: 50.00%; opacity: 1; }
+  48.0% { left: 50.00%; opacity: 1; }
+  63.0% { left: 64.29%; opacity: 1; }
+  69.0% { left: 64.29%; opacity: 1; }
+  84.0% { left: 78.57%; opacity: 1; }
+  90.0% { left: 78.57%; opacity: 1; }
+  93.0% { left: 78.57%; opacity: 0; }
+  100.0% { left: 78.57%; opacity: 0; }
+}
+@media (max-width: 640px) { .map__train svg { width: 40px; height: 14px; } .map__train { margin-left: -20px; top: 10px; } }
+@media (prefers-reduced-motion: reduce) { .map__train { display: none; } }
+/* v9z: bento matches the site's card style: paper, hairline, station-colour top rule, line drawings */
+.bt { background: var(--paper); border: 1px solid var(--rule); border-top: 4px solid var(--c); border-radius: var(--r-md, 12px); padding: var(--s-5) var(--s-5) var(--s-5); }
+.bt:hover { box-shadow: 0 10px 24px -18px color-mix(in oklch, var(--ink) 45%, transparent); }
+.bt__art { color: var(--ink-3); }
+.bt__art .bt__s { fill: color-mix(in oklch, var(--c) 18%, var(--paper)); }
+.bt__art .bt__p { fill: var(--paper); stroke: var(--ink-3); }
+.bt__art .bt__q { stroke: var(--ink-3); }
+@media (min-width: 861px) { .bt--w .bt__art { width: 220px; height: 88px; } }
+.bt h3 { font-size: var(--text-base); }
+.bt:not(.bt--w) .bt__art { width: 130px; height: 52px; }
