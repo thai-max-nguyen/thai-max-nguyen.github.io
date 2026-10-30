@@ -1277,3 +1277,17 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 @keyframes merflow { to { stroke-dashoffset: -22; } }
 @keyframes merdrop { from { transform: translateY(-4px); opacity: 1; } to { transform: translateY(10px); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .motion .sgm__mer .mer__w, .motion .sgm__mer .mer__d { animation: none; } }
+
+/* v9w: Merlion statue */
+.sgm__mer .mer__k { fill: var(--paper); stroke: var(--sg); stroke-width: 1.5; stroke-linejoin: round; }
+.sgm__mer .mer__l { fill: none; stroke: var(--sg); stroke-opacity: 0.45; stroke-width: 1.1; stroke-linecap: round; }
+.sgm__mer .mer__e { fill: var(--sg); }
+.sgm__mer .mer__w { fill: none; stroke: oklch(68% 0.11 230); stroke-width: 3; stroke-linecap: round; stroke-dasharray: none; animation: none; }
+.sgm__mer .mer__wd { fill: none; stroke: var(--paper); stroke-width: 1; stroke-linecap: round; stroke-dasharray: 3 9; }
+.sgm__mer .mer__sp, .sgm__mer .mer__sp * { fill: none; stroke: oklch(68% 0.11 230); stroke-width: 1.3; stroke-linecap: round; }
+.sgm__mer .mer__wv { fill: none; stroke: oklch(68% 0.11 230); stroke-opacity: 0.7; stroke-width: 1.3; }
+.motion .sgm__mer .mer__wd { animation: merflow2 1s linear infinite; }
+@keyframes merflow2 { to { stroke-dashoffset: -24; } }
+.motion .sgm__mer .mer__sp ellipse { transform-box: fill-box; transform-origin: center; animation: mersp 1.4s ease-out infinite; }
+@keyframes mersp { from { transform: scale(0.4); opacity: 1; } to { transform: scale(1.3); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .motion .sgm__mer .mer__wd, .motion .sgm__mer .mer__sp ellipse { animation: none; } }
