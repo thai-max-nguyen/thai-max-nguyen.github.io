@@ -345,3 +345,15 @@
   var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { s.classList.add("is-in"); io.disconnect(); } }); }, { threshold: 0.15 });
   io.observe(s);
 })();
+
+/* v9ai: start the BNPL journey walker when the diagram is in view (skipped for reduced motion) */
+(function () {
+  var g = document.getElementById("bjgo"), f = document.querySelector(".bj__fig");
+  if (!g || !f || !g.beginElement) return;
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!("IntersectionObserver" in window)) { g.beginElement(); return; }
+  var io = new IntersectionObserver(function (es) {
+    if (es[0].isIntersecting) { g.beginElement(); io.disconnect(); }
+  }, { threshold: 0.4 });
+  io.observe(f);
+})();
