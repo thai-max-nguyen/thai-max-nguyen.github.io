@@ -371,15 +371,21 @@
     var b; try { b = g.getBBox(); } catch (_) { b = { x: 0, width: 0 }; }
     return { g: g, x: b.x + b.width / 2, a: null, t: 0 };
   });
-  var lastX = null, lastT = 0;
-  w.addEventListener("pointermove", function (e) {
+  /* stalks grow (~1.2s) the first time the word turns on; hold the gust until they are up */
+  var ready = w.classList.contains("is-on") ? 0 : Infinity;
+  if (ready) new MutationObserver(function (m, o) {
+    if (w.classList.contains("is-on")) { ready = performance.now() + 1250; o.disconnect(); }
+  }).observe(w, { attributes: true, attributeFilter: ["class"] });
+  var lastX = null, lastT = 0, lastE = null, rest = null;
+  function gust(e) {
+    lastE = e;
     var box = r.getBoundingClientRect(), now = performance.now();
     if (!box.width) return;
     var x = (e.clientX - box.left) / box.width * 400;
     var v = lastX === null ? 0 : (x - lastX) / Math.max(16, now - lastT);
     lastX = x; lastT = now;
-    if (Math.abs(v) < 0.02) return;
-    var dir = v > 0 ? 1 : -1, push = Math.min(1, Math.abs(v) / 0.6);
+    var wait = ready === Infinity ? 1250 : ready - now;
+    var dir = v < 0 ? -1 : 1, push = Math.max(0.35, Math.min(1, Math.abs(v) / 0.6));
     plants.forEach(function (p) {
       var d = Math.abs(p.x - x);
       if (d > 40 || now - p.t < 350) return;
@@ -394,8 +400,15 @@
         { transform: "rotate(" + (0.3 * amp) + "deg)", offset: 0.64 },
         { transform: "rotate(" + (-0.12 * amp) + "deg)", offset: 0.84 },
         { transform: "rotate(0deg)" }
-      ], { duration: 1300 + d * 10, delay: d * 4, easing: "ease-out" });
+      ], { duration: 1300 + d * 10, delay: d * 4 + Math.max(0, wait), easing: "ease-out" });
     });
+  }
+  w.addEventListener("pointermove", gust);
+  w.addEventListener("pointerenter", gust);
+  /* pointer resting on the rice: keep a soft sway going */
+  w.addEventListener("pointerenter", function () {
+    clearInterval(rest);
+    rest = setInterval(function () { if (lastE) { lastX = null; gust(lastE); } }, 1500);
   });
-  w.addEventListener("pointerleave", function () { lastX = null; });
+  w.addEventListener("pointerleave", function () { lastX = null; lastE = null; clearInterval(rest); });
 })();
