@@ -1457,3 +1457,59 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 
 /* v9ar: tool cards follow the product flow, each with a step label */
 .bt__n { display: block; margin-bottom: 4px; font: 600 var(--text-xs) var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-3); }
+
+/* v9as: layout consistency pass (audit 31/10) */
+/* charts inside tabs: no box, same gap, same width, caption flush with text */
+.tp .chart { background: none; border: 0; border-radius: 0; padding: 0; margin-top: var(--s-6); }
+.x4 { max-width: none; }
+.bj__fig { margin-top: var(--s-6); }
+.x4 + .life { margin-top: var(--s-4); }
+@media (max-width: 640px) {
+  .tp .chart { overflow-x: auto; }
+  .tp .chart svg { min-width: 520px; }
+  .tp .chart::after { content: "Swipe sideways to see the whole chart →"; display: block; position: sticky; left: 0; margin-top: var(--s-2); font: 500 var(--text-xs) var(--font-mono); color: var(--ink-3); }
+}
+/* tabs scroll as a strip until there is room for one line each */
+@media (max-width: 900px) {
+  .tabs { display: flex; overflow-x: auto; scrollbar-width: none; }
+  .tabs__b { flex: 0 0 auto; padding-right: var(--s-5); }
+  .tabs__b b { white-space: nowrap; }
+}
+/* media column: phones and captions share the left edge */
+.tp__media .device { margin-left: 0; margin-right: auto; }
+.tp__media figcaption { text-align: left; }
+.lz__fig { max-width: 280px; }
+.tp__copy { max-width: 590px; }
+.tp__k a { white-space: nowrap; }
+@media (min-width: 900px) { #p-vietqr { grid-template-columns: 500px minmax(0, 1fr); } }
+/* one size for every section heading */
+.sec-h h2, .about h2, .contact h2, .blk__h h2, .sign__name { font-size: var(--text-2xl); line-height: 1.05; }
+/* tool cards: titles sit on the same baseline in a row */
+.bt--w { align-content: end; }
+@media (min-width: 561px) and (max-width: 860px) {
+  .bt--w { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--s-6); align-content: end; }
+  .bt--w .bt__art { grid-column: 2; grid-row: 1 / span 2; width: 220px; height: 88px; align-self: center; }
+  .bt--w h3 { grid-column: 1; grid-row: 1; margin-top: 0; align-self: end; }
+  .bt--w p { grid-column: 1; grid-row: 2; align-self: start; }
+}
+/* small screens: ghost buttons keep the text edge */
+@media (max-width: 560px) { .btn--ghost { padding-inline: 0; } }
+/* partners: label + 13 logos fill 7x2 exactly, no span */
+/* one gap for card grids */
+.bento, .aw__grid, .rgrid { gap: var(--s-4); }
+.lz__out { gap: var(--s-4); max-width: none; }
+.stn--next { padding-bottom: var(--s-7) !important; }
+@media (max-width: 480px) { .aw__grid { grid-template-columns: minmax(0, 1fr); } }
+@media (min-width: 561px) and (max-width: 1099px) { .aw__t { min-height: 2.5em; } }
+@media (max-width: 560px) { .lz__out b { min-height: 0; } }
+/* no lone words at line ends */
+h2, h3, h4, .sign__name, .sign__meta { text-wrap: balance; }
+p, figcaption, .res__grid span { text-wrap: pretty; }
+.nw { white-space: nowrap; }
+@media (max-width: 899px) { .about__pic { max-width: 360px; } }
+@media (min-width: 561px) and (max-width: 860px) {
+  .bento .bt { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--s-6); align-content: end; }
+  .bento .bt .bt__art { grid-column: 2; grid-row: 1 / span 2; width: 220px; height: 88px; align-self: center; }
+  .bento .bt h3 { grid-column: 1; grid-row: 1; margin-top: 0; align-self: end; }
+  .bento .bt p { grid-column: 1; grid-row: 2; align-self: start; }
+}
