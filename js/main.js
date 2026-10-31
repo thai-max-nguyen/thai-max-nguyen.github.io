@@ -357,3 +357,45 @@
   }, { threshold: 0.4 });
   io.observe(f);
 })();
+
+/* v9ap: wind on the rice. Stalks near the pointer bend the way it moves, then settle */
+(function () {
+  var w = document.querySelector(".vnw"), r = w && w.querySelector(".vnw__r svg");
+  if (!r || !r.animate) return;
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var plants = [].slice.call(r.querySelectorAll(".rp__s")).map(function (s) {
+    var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    g.setAttribute("class", "rp__g");
+    while (s.firstChild) g.appendChild(s.firstChild);
+    s.appendChild(g);
+    var b; try { b = g.getBBox(); } catch (_) { b = { x: 0, width: 0 }; }
+    return { g: g, x: b.x + b.width / 2, a: null, t: 0 };
+  });
+  var lastX = null, lastT = 0;
+  w.addEventListener("pointermove", function (e) {
+    var box = r.getBoundingClientRect(), now = performance.now();
+    if (!box.width) return;
+    var x = (e.clientX - box.left) / box.width * 400;
+    var v = lastX === null ? 0 : (x - lastX) / Math.max(16, now - lastT);
+    lastX = x; lastT = now;
+    if (Math.abs(v) < 0.02) return;
+    var dir = v > 0 ? 1 : -1, push = Math.min(1, Math.abs(v) / 0.6);
+    plants.forEach(function (p) {
+      var d = Math.abs(p.x - x);
+      if (d > 40 || now - p.t < 350) return;
+      var amp = dir * (6 + 10 * push) * (1 - d / 40);
+      if (Math.abs(amp) < 1.5) return;
+      p.t = now;
+      if (p.a) p.a.cancel();
+      p.a = p.g.animate([
+        { transform: "rotate(0deg)" },
+        { transform: "rotate(" + amp + "deg)", offset: 0.18 },
+        { transform: "rotate(" + (-0.55 * amp) + "deg)", offset: 0.42 },
+        { transform: "rotate(" + (0.3 * amp) + "deg)", offset: 0.64 },
+        { transform: "rotate(" + (-0.12 * amp) + "deg)", offset: 0.84 },
+        { transform: "rotate(0deg)" }
+      ], { duration: 1300 + d * 10, delay: d * 4, easing: "ease-out" });
+    });
+  });
+  w.addEventListener("pointerleave", function () { lastX = null; });
+})();

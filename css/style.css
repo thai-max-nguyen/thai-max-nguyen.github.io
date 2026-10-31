@@ -1447,3 +1447,6 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 [data-theme="dark"] .map__train .tr__b { fill: #f4f5f8; stroke: #f4f5f8; }
 [data-theme="dark"] .map__train .tr__w { fill: #1b2030; }
 [data-theme="dark"] .map__train { filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.5)); }
+
+/* v9ap: wind gust layer on each rice stalk (driven by main.js) */
+.vnw__r .rp__g { transform-box: fill-box; transform-origin: 50% 100%; }
