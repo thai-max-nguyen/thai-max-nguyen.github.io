@@ -148,9 +148,9 @@
         nowName.textContent = s.getAttribute("data-name");
         if (progFill) progFill.style.setProperty("--now", c);
       } else {
-        nowCode.textContent = "TL";
+        nowCode.textContent = "TM";
         nowCode.style.setProperty("--c", "var(--ink)");
-        nowName.textContent = "Trust Line";
+        nowName.textContent = "Thai Max Nguyen";
         if (progFill) progFill.style.removeProperty("--now");
       }
     }
