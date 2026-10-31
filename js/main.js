@@ -383,7 +383,7 @@
     plants.forEach(function (p) {
       var d = Math.abs(p.x - x);
       if (d > 40 || now - p.t < 350) return;
-      var amp = dir * (6 + 10 * push) * (1 - d / 40);
+      var amp = dir * (10 + 14 * push) * (1 - d / 40);
       if (Math.abs(amp) < 1.5) return;
       p.t = now;
       if (p.a) p.a.cancel();

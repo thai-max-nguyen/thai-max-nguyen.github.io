@@ -1450,3 +1450,7 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 
 /* v9ap: wind gust layer on each rice stalk (driven by main.js) */
 .vnw__r .rp__g { transform-box: fill-box; transform-origin: 50% 100%; }
+
+/* v9aq: last tool card fills its row after FocusLog was removed */
+.bt--full { grid-column: 1 / -1; }
+@media (max-width: 560px) { .bt--full { grid-column: auto; } }
