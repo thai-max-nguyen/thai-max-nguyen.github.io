@@ -119,3 +119,6 @@
 :root { --zalo: oklch(55% 0.21 258); --zlp: oklch(74% 0.19 152); }  /* Zalo blue, Zalopay green */
 :root { --flag-red: oklch(60% 0.22 25); --flag-white: oklch(99% 0 0); }
 
+:root { --water: oklch(66% 0.12 232); }  /* Merlion water, sea accents */
+[data-theme="dark"] { --water: oklch(74% 0.11 232); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --water: oklch(74% 0.11 232); } }

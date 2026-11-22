@@ -412,3 +412,62 @@
   });
   w.addEventListener("pointerleave", function () { lastX = null; lastE = null; clearInterval(rest); });
 })();
+
+/* v10a: Saigon to Singapore flight. One scroll progress t (0..1) drives every state;
+ * smooth(a, b, t) eases each step between two thresholds, and the frame is redrawn only when t changes.
+ * Order: Saigon draws in, its label slides in, the route grows with the plane on it, Singapore draws
+ * in as the plane arrives, the arrival dot pulses once, the Singapore label rises.
+ * Without .motion (reduced motion, ?shot, JS off) the authored final frame stays put. */
+(function () {
+  var f = document.querySelector("[data-sgm]");
+  if (!f || !document.documentElement.classList.contains("motion")) return;
+  var q = function (s) { return f.querySelector(s); };
+  var route = q(".sgm__arc"), reveal = q(".sgm__rm"), plane = q(".sgm__plane"),
+      hcm = q(".sgm__land--hcm"), sg = q(".sgm__land--sg"), pinH = q(".sgm__pin--hcm"), pinS = q(".sgm__pin--sg"),
+      ring = q(".sgm__ring"), tagH = q(".sgm__tag--hcm"), tagS = q(".sgm__tag--sg");
+  if (!route || !route.getTotalLength) return;
+  var L = route.getTotalLength();
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function smooth(a, b, t) { var x = clamp((t - a) / (b - a)); return x * x * (3 - 2 * x); }
+  function o(el, v) { el.style.opacity = v.toFixed(3); }
+  function land(el, draw, fill) {            /* outline draws on, then the fill settles in */
+    el.style.strokeDashoffset = (1 - draw).toFixed(4);
+    el.style.fillOpacity = fill.toFixed(3);
+    el.style.strokeOpacity = draw > 0 ? 1 : 0;
+  }
+  function progress() {
+    var r = f.getBoundingClientRect(), vh = window.innerHeight, de = document.documentElement;
+    if (window.scrollY + vh >= de.scrollHeight - 2) return 1;     /* page end: always land */
+    return clamp((vh - r.top) / (vh * 0.6 + r.height / 2));        /* 1 a little before the map is centred */
+  }
+  var last = -1, queued = false;
+  function render() {
+    queued = false;
+    var t = progress();
+    if (Math.abs(t - last) < 0.001) return;
+    last = t;
+    land(hcm, smooth(0, 0.22, t), smooth(0.14, 0.3, t));
+    var a = smooth(0.16, 0.24, t);
+    pinH.setAttribute("r", (3 * a).toFixed(2));
+    o(tagH, smooth(0.2, 0.3, t));
+    tagH.style.transform = "translate3d(" + ((1 - smooth(0.2, 0.3, t)) * -10).toFixed(1) + "px,-50%,0)";
+    var p = smooth(0.26, 0.72, t), d = L * p;                      /* ease in-out along the route */
+    reveal.style.strokeDashoffset = (1 - p).toFixed(4);
+    var b0 = route.getPointAtLength(Math.max(0, d - 1)), b1 = route.getPointAtLength(Math.min(L, d + 1)), c = route.getPointAtLength(d);
+    plane.setAttribute("transform", "translate(" + c.x.toFixed(1) + " " + c.y.toFixed(1) + ") rotate(" + (Math.atan2(b1.y - b0.y, b1.x - b0.x) * 57.2958).toFixed(1) + ")");
+    o(plane, smooth(0.24, 0.29, t) * (1 - smooth(0.71, 0.76, t)));
+    land(sg, smooth(0.5, 0.72, t), smooth(0.64, 0.8, t));
+    pinS.setAttribute("r", (3 * smooth(0.7, 0.74, t)).toFixed(2));
+    var k = smooth(0.72, 0.88, t), s = smooth(0.88, 0.96, t);      /* one pulse, then a quiet halo */
+    if (k < 1) { ring.setAttribute("r", (3 + 14 * k).toFixed(2)); o(ring, t < 0.72 ? 0 : 0.7 * (1 - k)); }
+    else { ring.setAttribute("r", "7"); o(ring, 0.5 * s); }
+    var u = smooth(0.76, 0.88, t);
+    o(tagS, u);
+    tagS.style.transform = "translate3d(-50%," + ((1 - u) * 8).toFixed(1) + "px,0)";
+  }
+  function ask() { if (!queued) { queued = true; requestAnimationFrame(render); } }
+  f.classList.add("is-live");
+  window.addEventListener("scroll", ask, { passive: true });
+  window.addEventListener("resize", function () { last = -1; ask(); }, { passive: true });
+  render();
+})();
